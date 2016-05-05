@@ -1,0 +1,274 @@
+.banner{
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 20px;
+	img {
+		//.transition(all 0.5s ease-in-out);
+		@include single-transition(all, 500ms);
+		height: auto;
+		width: 100%;
+	}
+	&.bery_banner {
+		line-height: 140%;
+		display: block;
+		position: relative;
+		overflow: hidden;
+		//Instead of the line below you could use @includeuser-select($select)
+		user-select: none;
+		img{
+			overflow: hidden !important;
+		}
+		.banner-bg{
+			-webkit-transition: all 0.5s ease-out;
+			-moz-transition: all 0.5s ease-out;
+			transition: all 0.5s ease-out;
+		}
+	}
+
+	.banner-content {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		margin: 20px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		position: absolute;
+		z-index: 2;
+		p{
+			float: left;
+			width: 100%;
+			margin:0;
+		}
+		.banner-inner{
+			span{color: #000;}
+			h1,h2,h3,h4,h5,h6{
+				letter-spacing: 3px;
+				word-wrap: normal;
+				//font-weight: bold;
+			}
+			h1{font-size: 200%;}
+			h2{font-size: 180%;}
+			h3{font-size: 160%;}
+			h4{font-size: 130%;}
+			h5{font-size: 120%;}
+			.bery-hr{
+				margin-bottom: 15px;
+			}
+		}
+		.btn.border-white{
+			&:hover{
+				border:2px solid #fff;
+			}
+		}
+	}
+	
+	&.cursor-pointer{
+		cursor: pointer;
+	}
+	&.align-left{
+		text-align: left;
+	}
+	&.align-right{
+		text-align: right;
+		.bery-hr{
+			float: right;
+		}
+	}
+	&.align-center{
+		text-align: center;
+		.bery-hr{
+			margin:0 auto;
+		}
+	}
+	&.valign-middle{
+		.banner-inner{
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			left: 0;
+			-webkit-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+
+	}
+	&.valign-bottom{
+		.banner-inner{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			left: 0;
+		}
+
+	}
+	&.hover-zoom {
+		-webkit-transition: 0.3s all ease-in-out;
+		-moz-transition: 0.3s all ease-in-out;
+		-ms-transition: 0.3s all ease-in-out;
+		-o-transition: 0.3s all ease-in-out;
+		transition: 0.3s all ease-in-out;
+		-webkit-backface-visibility: hidden;
+		-webkit-perspective: 1000;
+	    .banner-image{
+			-webkit-transition: all 0.3s cubic-bezier(0.3, 0.1, 0.58, 1) 0s;;
+			-o-transition: all 0.3s cubic-bezier(0.3, 0.1, 0.58, 1) 0s;;
+			transition: all 0.3s cubic-bezier(0.3, 0.1, 0.58, 1) 0s;;
+			width: 100%;
+			-webkit-backface-visibility: hidden;
+			-webkit-perspective: 1000;
+
+	    }
+	    &:hover{
+	    	a{
+	    		text-decoration: none !important;
+	    	}
+	    	.banner-image{
+	    		-webkit-transform: scale(1.05);
+				-moz-transform: scale(1.05);
+				-o-transform: scale(1.05);
+				transform: scale(1.05);
+	    	}
+	    }
+	}
+	&.hover-reduction {
+		-webkit-transition: 0.3s all ease-in-out;
+		-moz-transition: 0.3s all ease-in-out;
+		-ms-transition: 0.3s all ease-in-out;
+		-o-transition: 0.3s all ease-in-out;
+		transition: 0.3s all ease-in-out;
+		-webkit-backface-visibility: hidden;
+		-webkit-perspective: 1000;
+	    img{
+	    	-webkit-transition: 0.5s all ease-in-out;
+			-moz-transition: 0.5s all ease-in-out;
+			-ms-transition: 0.5s all ease-in-out;
+			-o-transition: 0.5s all ease-in-out;
+			transition: 0.5s all ease-in-out;
+			width: 100%;
+			-webkit-backface-visibility: hidden;
+			-webkit-perspective: 1000;
+    	    -webkit-transform: scale(1.1);
+			-moz-transform: scale(1.1);
+			-o-transform: scale(1.1);
+			transform: scale(1.1);
+	    }
+	    &:hover{
+	    	background-color: #000;
+	    	a{
+	    		text-decoration: none !important;
+	    	}
+	    	img{
+	    		-webkit-transform: scale(1.0);
+				-moz-transform: scale(1.0);
+				-o-transform: scale(1.0);
+				transform: scale(1.0);
+				opacity: 0.75;
+	    	}
+	    }
+	}
+	&.hover-fade{
+		-webkit-transition: 0.3s all ease-in-out;
+		-moz-transition: 0.3s all ease-in-out;
+		-ms-transition: 0.3s all ease-in-out;
+		-o-transition: 0.3s all ease-in-out;
+		transition: 0.3s all ease-in-out;
+	    img {
+			-webkit-transition: 0.5s all ease-in-out;
+			-moz-transition: 0.5s all ease-in-out;
+			-ms-transition: 0.5s all ease-in-out;
+			-o-transition: 0.5s all ease-in-out;
+			transition: 0.5s all ease-in-out;
+			width: 100%;
+			opacity: 1;
+		}
+		&:hover{
+			img{
+				opacity: 0.8;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.banner-wrapper{
+	position: relative;
+}
+
+.seam_icon{
+	position: absolute;
+	top: 30px;
+	z-index: 2;
+	&.align_left{
+		left: -5px;
+	}
+	&.align_right{
+		right: -5px;
+	}
+	.seam{
+		display: block;
+		border: 1px solid $primary-color;
+		width: 30px;
+	}
+	.seam-up{
+		margin-bottom: 3px;
+	}
+}
+
+.dark h1,.dark h2, .dark h3, .dark h4, .dark h5{color: #FFF;}
+.border_outner{
+	border: 1px solid $primary-color;
+}
+.border_inner{
+	border: 1px solid rgba(255,255,255,0.5);
+	padding: 20px;
+}
+
+.bery_banner-grid {
+	//margin-top: 40px !important;
+	margin-left: -5px!important;
+	margin-right: -5px!important;
+	.wpb_content_element {
+		margin-bottom: 0;
+	}
+	.rev_slider_wrapper {
+		margin-bottom: 9px !important;
+	}
+	.columns {
+		margin-right: -1px;
+		> {
+			div {
+				margin-left: 7px;
+				margin-right: 7px;
+			}
+			img {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	.bery_banner {
+		margin-bottom: 15px;
+		display: block;
+	}
+}
+
+.bery_banner.banner-parallax .button{font-size: 1em;}
+/* Parallax */
+.section-element.parallax{background-attachment: fixed;}
+
+.font-100{font-size: 100% !important; line-height: 100%; margin: 7px 0px;}
+.font-150{font-size: 150% !important; line-height: 100%; margin: 7px 0px;}
+.font-200{font-size: 200% !important; line-height: 100%; margin: 7px 0px;}
+.font-250{font-size: 250% !important; line-height: 100%; margin: 7px 0px;}
+.font-300{font-size: 300% !important; line-height: 100%; margin: 7px 0px;}
+.font-350{font-size: 350% !important; line-height: 100%; margin: 7px 0px;}
+.font-400{font-size: 400% !important; line-height: 100%; margin: 7px 0px;}
+.font-450{font-size: 450% !important; line-height: 100%; margin: 7px 0px;}
+.font-500{font-size: 500% !important; line-height: 100%; margin: 7px 0px;}
+.font-550{font-size: 550% !important; line-height: 100%; margin: 7px 0px;}
+.font-600{font-size: 600% !important; line-height: 100%; margin: 7px 0px;}
+.font-650{font-size: 650% !important; line-height: 100%; margin: 7px 0px;}
+html[data-useragent*='iPad'] .bery_bg .banner-bg.bery_parallax, html[data-useragent*='iPad'] .bery_banner .banner-bg.bery_parallax,html[data-useragent*='iPhone'] .bery_bg .banner-bg.bery_parallax, html[data-useragent*='iPhone'] .bery_banner .banner-bg.bery_parallax{background-position:  50% 50%!important; background-size:cover!important; background-attachment:inherit!important;}

@@ -1,0 +1,209 @@
+.collapse .row .column, .collapse .row .columns{position: relative; padding-left: 0; padding-right: 0; float: left;}
+
+
+/* BLOG */
+.blog .left{padding-right: 20px;}
+.blog .right{padding-left: 20px;}
+li.blog_shortcode_item:hover .post-date{background: none;}
+.group-blogs{
+  .blog-grid{
+    .blog-grid-item{
+      margin-bottom: 60px;
+    }
+  }
+  .entry-blog{
+    .blog-image{
+      margin-top: 0; position: relative;
+      .blog-image-attachment{
+        img{width: 100%;}
+        &:after{
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          content: "";
+          border: 0px solid rgba(255,255,255,0.5);
+          opacity: 0;
+          @include single-transition(all, 350ms);
+        }
+        &:hover::after{
+          opacity: 1;
+          border: 15px solid rgba(255,255,255,0.5);
+        }
+      }
+    }
+    .seam_icon{
+      &.align_right{right: -15px;}
+      &.align_left{left: -15px;}
+    }
+  }
+  .blog_info{
+      margin-top: 60px;
+      .blog_title{
+        margin-top: 13px; word-wrap: break-word;
+        a{
+          padding: 0; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;
+        }
+      }
+      .post-date, .meta-author{
+        font-size: 100%; text-transform: uppercase; color: #888; letter-spacing: 2px;
+      }
+      &:hover .post-date{background: none;}
+      .read_more a{
+        font-size: $font-size; color: #888;
+        &:hover{color: $primary-color;}
+      }
+  }
+}
+
+#map_container{position: relative;margin-bottom: 30px;}
+#map_container .map-info{position: absolute;bottom:30px;left:0;right:30px;}
+#map_container .map_inner{padding: 15px;background-color: #FFF; background-color:rgba(255,255,255,0.8);}
+
+
+.featured-product{margin-bottom: 10px}
+.featured-product .product-bg{position: absolute; bottom:0;top:0;left:0;right:0;background: $primary-color; opacity: 0; @include single-transition(opacity); color: #FFF;}
+.featured-product:hover .product-bg{opacity: 0.4}
+.featured-product .product-text{font-size:80%; padding: 0 60px; position: absolute; top:30%;  width: 100%;text-align: center; opacity: 0; @include single-transition(opacity); text-shadow:1px 1px 1px rgba(0,0,0,0.2)}
+.featured-product .product-text h3{text-transform: uppercase; color: #fff;}
+.featured-product:hover .product-text{opacity: 1}
+.featured-product .main-img img{width: 100%;}
+.featured-product .price {font-size: 150%;}
+.featured-product .star-rating{margin: 0 auto 10px;}
+.featured-product .price .from,.featured-product .price .amount{color: #FFF;}
+
+
+.testemonial{text-align: center; position: relative;}
+.testimonial_text{font-size: $font-size; margin-top: 15px;}
+.testimonial_image{margin-top: 20px;}
+.test_name{margin-top: 10px; font-weight: bold; text-transform: uppercase;}
+.test_company{font-size: 70%; margin-top: -6px;}
+.testemonial .bery-hr.medium{margin: 0 auto !important;}
+
+
+.client{
+  color: #fff; font-size: $font-size; text-align: left; 
+  .client-inner{
+     padding: 90px 200px;
+      img{float: left; margin-right: 30px; margin-top: 20px; @include radius(500px); max-width: 80px; border: 4px solid rgba(255,255,255,0.3); color: #fff !important;}
+      .client-info{
+        overflow: hidden;
+        .client-content{line-height: 1.5em; letter-spacing: 1px; margin-bottom: 15px; font-size: 110%;}
+        .star-rating{
+          margin-top: 5px; margin-bottom: 14px; font-size: $font-size; margin: 0;
+          span{
+            &:before{color: #fff !important;}
+          }
+        }
+        span{
+          list-style: none; padding-right: 0; color: #fff; display: block; margin-bottom: 10px;
+          &.client-pos{color: #ccc;}
+        }
+        .client-name{color: #fff; margin-top: 8px;}
+      }
+  }
+}
+
+
+.tp_widget_recent_tweets{
+	  @include clearfix();
+    margin-bottom: 40px !important;
+}
+.tp_widget_recent_tweets h3.section-title span span{text-transform: uppercase; font-weight: bold; font-size: 100%;}
+.tp_widget_recent_tweets span span.bery-hr{display: none;}
+.tp_recent_tweets span{font-size: 90%;}
+.tp_recent_tweets ul li:last-child{padding-bottom: 0;}
+
+
+.featured-box {position:relative;@include single-transition(opacity);}
+.featured-box .featured-img .featured-box .iconmelon{margin-bottom: 10px}
+.featured-box h4{text-transform: uppercase;font-size: 100%;}
+.featured-box h4 span{display: block;font-weight: normal;font-size: 90%;}
+.featured-box .iconmelon{width:42px;height:42px;}
+
+.featured-box.pos-left {padding-left: 70px;}
+.featured-box.pos-left .featured-img{position: absolute;left:0;top:3px;max-width: 50px;}
+
+.row.boxed .featured-box.pos-left{padding-left: 40px;}
+.row.boxed .featured-box.pos-left .featured-img{left:-20px;top:20px;background: #000;@include radius(99px);padding:5px;}
+
+.featured-box.pos-center{text-align: center}
+.featured-box.pos-center .bery-hr{margin: 0 auto 10px}
+
+.featured-box .box-inner img.featured-img{margin-bottom: 10px;}
+
+.team-member-img{padding: 0 20px 15px;}
+.team-member .social-icons{margin-bottom: 15px}
+.team-member h4{margin: 0}
+.team-member h5{text-transform: uppercase; font-weight: normal; color: #999}
+
+
+.message-box{background-repeat:repeat-x; padding: 10px;text-align: center;text-transform: uppercase;font-weight: bold; font-size: 110%}
+.message-box .inner{padding: 15px;}
+.message-box .inner .button{margin: 0 15px}
+
+p.product.woocommerce{border:0px;}
+p.product.woocommerce span.amount{display: block;font-size: 200%;font-weight: bold;margin-bottom: 5px;}
+p.product.woocommerce .added_to_cart{display: block;}
+
+.bery_hotspot{opacity:0.8;display:block;width:20px;text-align:center;height:20px;line-height:20px;font-size: 10px;background: #000;-webkit-border-radius: 999px;
+-moz-border-radius: 999px;
+border-radius: 999px; cursor:pointer; cursor: -webkit-zoom-in; cursor: -moz-zoom-in;color:#FFF;}
+.bery_hotspot:hover{opacity: 1;}
+.bery_hotspot a, .bery_hotspot a:hover{color:#FFF;cursor:pointer; }
+.bery_hotspot_text{display: block;font-size: 80%;max-width: 80%; white-space:normal;}
+.bery_hotspot_text > span{display: block;}
+.bery_hotspot_text span.prod-price{font-weight: bold;}
+.bery_hotspot_text:hover{opacity: 1;text-decoration: underline;cursor:pointer;}
+
+
+.bery_price_table{background: #FFF; border:1px solid #eee;@include single-transition();}
+.bery_price_table:hover{-webkit-box-shadow: 0px 0px 19px 0px rgba(50, 50, 50, 0.33);
+-moz-box-shadow:    0px 0px 19px 0px rgba(50, 50, 50, 0.33);
+box-shadow:         0px 0px 19px 0px rgba(50, 50, 50, 0.33); }
+.bery_price_table li{list-style:none;border-top: 1px solid rgba(0,0,0,0.05);margin: 0 30px;}
+.bery_price_table ul{margin: 0}
+.bery_price_table .bullet-item{padding:10px 0;}
+.bery_price_table .price{font-weight: 400;font-size: 180%;padding:30px 0;border:0}
+.bery_price_table .description{font-size: $font-size; opacity: 0.8; text-transform: uppercase; padding:0 0 15px;border:0}
+.bery_price_table .title{margin:0; border:0; text-transform:uppercase;font-weight: bold;padding: 5px 0;background-color: rgba(0,0,0,.01);border-bottom: 1px solid rgba(0,0,0,0.05);}
+.bery_price_table .cta-button{background-color: rgba(0,0,0,.01);padding: 20px 0 10px;margin: 15px 0 0 0}
+.collapse .bery_price_table{margin-left: -1px;}
+
+.scroll-to{height:0px;overflow: hidden;}
+.scroll-to-bullets{position: fixed;right:45px;top:40%;z-index:99;text-align: right;}
+.scroll-to-bullets a{display: inline-block; text-transform:uppercase;padding:5px 8px;@include radius(99px);@include single-transition();}
+.scroll-to-bullets a:hover{background: $primary-color;}
+.scroll-to-bullets a *{display: inline-block;}
+.scroll-to-bullets a:hover *{color:#FFF;}
+.scroll-to-bullets a strong{font-size: $font-size;opacity: 0;margin-right: 10px;position: relative;top:-1px;pointer-events:none;}
+.scroll-to-bullets a:hover strong{opacity: 1}
+.scroll-to-bullets a span{background-color: #000;opacity: 0.2;width:12px;height:12px;padding:5px;@include radius(99px);}
+.scroll-to-bullets a:hover span{background-color: #FFF;opacity: 0.8}
+.scroll-to-bullets a.active span{opacity: 0.7}
+
+a.button .large .black{background: black;}
+a.button {margin-bottom: 10px;}
+
+
+/* BRAND ELEMENT */
+.lee-brands{
+  .brands-item{
+    img{
+      opacity: 1;
+      @include single-transition(all,350ms);
+    }
+    &:hover img{
+      opacity: 0.6;
+    }
+  }
+}
+
+.bery_category_banner{display: inline-block;}
+.bery_category_banner a{display: block;opacity: 0.6}
+.bery_category_banner a:hover{opacity: 1}
+.bery_category_banner img{display: block;}
+
+.forcefullwidth_wrapper_tp_banner{margin-bottom: 30px !important;}
+

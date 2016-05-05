@@ -1,0 +1,45 @@
+/* TEAM MEMBERS */
+.team-member{
+	text-align: center;
+	.member-image{
+		margin-bottom: 20px;
+		img{
+			&:hover{
+				opacity: 0.8;
+			}
+		}
+	}
+	.member-details{
+		h3{
+			text-transform: uppercase;
+			letter-spacing: 0;
+			font-size: 100%;
+			font-weight: normal;
+			color: $primary-color;
+		}
+		.member-position{
+			font-size: 80%;
+			color: #666;
+		}
+		.social-icons{
+			width:100%;
+			margin: 10px 0 !important;
+		}
+		.member-email{
+
+		}
+	}
+}
+
+.team-member.member-type-2{
+	text-align: left !important;
+	.member-details{
+		 .menu-social-icons{
+		 	text-align: left;
+		 }
+		 color:#767676;
+		 h4{
+		 	color: #333;
+		 }
+	}
+}

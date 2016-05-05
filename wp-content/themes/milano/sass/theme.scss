@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+/*-- Table of contents --*/
+/*------------------------------------------------------------------
+1. Reset
+2. Global Variables
+3. Header
+4. Footer
+5. Pages - Blog
+6. Categories
+7. Product
+8. Cart page
+9. Checkout page
+10. Sliders
+11. Banners
+12. Popup
+13. Shortcodes
+14. Widgets
+15. Responsive for mobile
+16. Foundation Elements
+17. Overwrite CSS
+
+/*------------------------------------------------------------------*/
+
+
+/*------------------------- 1. Reset -------------------------------*/
+@import "settings";
+@import "reset";
+
+/*------------------------- 2. Global Variables --------------------*/
+
+@import "foundation/global";
+@import "css_global";
+
+/*------------------------- 3. Header ------------------------------*/
+@import "css_header";
+
+/*------------------------- 4. Footer ------------------------------*/
+@import "css_footer";
+
+/*------------------------- 5. Pages -------------------------------*/
+@import "css_pages";
+
+/*------------------------- 6. Category ----------------------------*/
+@import "css_category";
+
+/*------------------------- 7. Product -----------------------------*/
+@import "css_product";
+
+/*------------------------- 8. Cart --------------------------------*/
+@import "css_cart";
+
+/*------------------------- 9. Checkout page------------------------*/
+@import "css_checkout";
+
+/*------------------------- 10. Sliders ----------------------------*/
+@import "css_sliders";
+
+/*------------------------- 11. Banners ----------------------------*/
+@import "css_banners";
+
+/*------------------------- 12. Popup ------------------------------*/
+@import "css_popup";
+
+/*------------------------- 13. Shortcodes -------------------------*/
+@import "css_shortcodes";
+
+/*------------------------- 14. Widgets ----------------------------*/
+@import "css_widgets";
+
+/*------------------------- 15. Responsive for Mobile --------------*/
+@import "css_responsive";
+
+/*------------------------- 15. CSS Visual composer element --------------*/
+@import "css_vc";
+
+/*------------------------- 16. Main Menu --------------*/
+@import "css_mainmenu";
+
+/*------------------------- 17. CSS Others element --------------*/
+@import "css_others";
+
+/*------------------------- 18. CSS Override --------------*/
+@import "css_override";
+
+/*------------------------- 19. Foundation elements ----------------*/
+@import
+  "foundation/grid", "foundation/visibility", "foundation/block-grid", "foundation/type", "foundation/buttons", "foundation/forms", "foundation/alert-boxes", "foundation/pagination", "foundation/tables", "foundation/inline-lists";
+
+  /*------------------------- 20. CSS Overwrite --------------*/
+
+
+

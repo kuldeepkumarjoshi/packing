@@ -1,0 +1,115 @@
+.main-images{
+  padding-right: 13px;
+  .owl-wrapper-outer{border: 1px solid #ECECEC;}
+}
+
+
+#product-pager{margin-top: 15px; margin-left: -8px; margin-right: -8px;}
+.product-thumbnails .owl-item img{overflow:hidden;border: 1px solid $border-light;@include single-transition(opacity);display: inline-block; opacity: 0.6;}
+.product-thumbnails .owl-item {padding:0px 8px;}
+.product-thumbnails .owl-item img{display: block;width: 100%;@include single-transition();}
+.product-thumbnails .active-thumbnail img.attachment-shop_thumbnail, .product-thumbnails img.attachment-shop_thumbnail:hover{opacity: 1;border-color: #ccc}
+.product-thumbnails .owl-item:hover,.product-thumbnails .owl-item.active-thumbnail{opacity: 1;border-color: #ccc; cursor: pointer;}
+
+.product-img {width: 100% !important;}
+
+.lee-slider{display: none;}
+
+/* Modifired Revolution slider arrows */
+.tparrows {
+  background: #b6b6b7 !important;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 99px;
+  width: 50px !important;
+  height: 50px !important;
+  @include single-transition(all, 350ms);
+  top: 45% !important;
+  &:hover {
+    background: $primary-color !important;
+  }
+  &.default:after {
+    color: #fff;
+    font-size: 25px;
+    position: absolute;
+    z-index: 10;
+    width: 50px;
+    line-height: 48px;
+    text-align: center;
+    font-weight: 300;
+    top: 0;
+    left: 0;
+    font-family: FontAwesome;
+  }
+}
+.tp-rightarrow.tparrows.default:after {
+  content: '\f105';
+}
+.tp-leftarrow.tparrows.default:after {
+  content: '\f104';
+}
+.tp-bullets{
+  .bullet {
+    opacity: 0.5;
+    background: #fff !important;
+    margin-right: 8px !important;
+    @include single-transition(opacity);
+    @include single-transition(background);
+    width: 10px !important;
+    height: 10px !important;
+    &:hover{
+      opacity: 1;
+      background: $primary-color !important;
+      cursor: pointer;
+    }
+    &.selected {
+      opacity: 1;
+      background: $primary-color !important;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Carousel */
+.owl-carousel{
+  position: relative;
+  .owl-prev:before{font-family: "FontAwesome"; content: "\f104"; font-size: 100%;}
+  .owl-next:before{font-family: "FontAwesome"; content: "\f105"; font-size: 100%;}
+  .owl-controls{
+    .owl-buttons{
+      position: absolute; top: 35%;width: 100%; opacity: 0; @include single-transition(all, 350ms);
+      div{
+        position: absolute; color: #aaa; border: 1px solid #ececec; display: block; line-height:30px; width:35px; height:35px;text-align:center; @include single-transition(all, 350ms); background: #fff;
+        &:hover{
+          background: $color_hover; color: #fff; border-color: $color_hover;
+        }
+      }
+      .owl-next{
+        right: -10px;
+        padding-left: 2px;
+      }
+      .owl-prev{
+        left: -10px;
+      }
+    }
+    .owl-pagination{
+      position: absolute; bottom: 25px; left: 48%; display: block;
+      .owl-page {
+        display: inline-block;
+        margin: 0 5px;
+        height:10px; width: 10px; border:1px solid #fff; opacity: 0.5;@include single-transition(background);
+        &.active, &:hover{opacity: 1;background: $primary-color; cursor: pointer;}
+      }
+    }
+  }
+  &.bullets_type_2{
+    .owl-pagination{
+      left: 0; margin-left: 20px;
+    }
+  }
+  &:hover
+    .owl-buttons{
+      opacity: 1;
+      .owl-next{right: -30px;}
+      .owl-prev{left: -30px}
+    }
+}

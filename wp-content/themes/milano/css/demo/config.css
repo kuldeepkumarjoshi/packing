@@ -1,0 +1,108 @@
+.config{
+	top: 33px;
+	-webkit-transition: 0.3s ease;
+  	transition: 0.3s ease;
+  	font-size: 80%;
+}
+
+.config-options{
+	position: fixed;
+	float: left;
+	z-index: 500;
+	left: -250px;
+	width: 250px;
+	background-color: #fff;
+	padding: 5px 20px 30px 20px;
+	line-height: 24px;
+	box-shadow: -3px 0 50px -2px rgba(0, 0, 0, 0.14);
+	border-top: 1px solid #eee;
+	-webkit-transition: 0.6s ease;
+  	transition: 0.6s ease;
+}
+
+.show-theme-options{
+	float: left;
+	position: fixed;
+	left: 0;
+	top: 190px;
+	z-index: 500;
+	padding: 10px 11px 10px 10px;
+	font-size: 25px;
+	display: block;
+	background-color: #fff;
+	border: 1px solid #eee;
+	border-left: none;
+	border-radius: 0px 5px 5px 0px;
+	-webkit-transition: 0.6s ease;
+  	transition: 0.6s ease;
+}
+
+}
+.show-theme-options i.fa{color: #333 !important; font-size: 100%;}
+
+.config.open .config-options{
+	left: 0;
+}
+
+.config.open .show-theme-options{left: 250px;}
+.config span{margin-bottom: 20px; text-align: center; text-transform: uppercase;}
+.ss-content {
+    border-bottom: 1px solid #ddd;
+    margin-top: 10px ;
+    margin-bottom: 20px ;
+    padding-bottom: 20px;
+}
+
+.ss-button {
+    border: 1px solid #ddd;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 100px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.ss-button.active, .ss-button:hover{background: #eee;}
+
+.ss-color-wrapper div, .ss-images-patterns div{display: inline-block;}
+.ss-color, .ss-image{width: 25px; height: 25px; margin-right: 5px; opacity: 0.5;-webkit-transition: 0.3s ease; transition: 0.3s ease;}
+.ss-color:hover, .ss-image:hover{opacity: 1; cursor: pointer;}
+.ss-color-1{background: #6fc138;}
+.ss-color-2{background: #ff4f4f;}
+.ss-color-3{background: #f9c831;}
+.ss-color-4{background: #7fc8aa;}
+.ss-color-5{background: #9b59b6;}
+.ss-color-6{background: #53b5f6;}
+
+.ss-image-1{background-image:url(images/pattern/bkgd1-icon.png); background-repeat: no-repeat;}
+.ss-image-2{background-image:url(images/pattern/bkgd2-icon.png); background-repeat: no-repeat;}
+.ss-image-3{background-image:url(images/pattern/bkgd3-icon.png); background-repeat: no-repeat;}
+.ss-image-4{background-image:url(images/pattern/bkgd4-icon.png); background-repeat: no-repeat;}
+.ss-image-5{background-image:url(images/pattern/bkgd5-icon.png); background-repeat: no-repeat;}
+.ss-image-6{background-image:url(images/pattern/bkgd6-icon.png); background-repeat: no-repeat;}
+.ss-pattern-1{background-image:url(images/pattern/pattern1.png); background-repeat: no-repeat;}
+.ss-pattern-2{background-image:url(images/pattern/pattern2.png); background-repeat: no-repeat;}
+.ss-pattern-3{background-image:url(images/pattern/pattern3.png); background-repeat: no-repeat;}
+.ss-pattern-4{background-image:url(images/pattern/pattern4.png); background-repeat: no-repeat;}
+.ss-pattern-5{background-image:url(images/pattern/pattern5.png); background-repeat: no-repeat;}
+.ss-pattern-6{background-image:url(images/pattern/pattern6.png); background-repeat: no-repeat;}
+
+
+a.to_buy_now {
+    background-color: #81c92b;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-size: 13px;
+    font-weight: 900;
+    padding: 12px 10px 8px;
+}
+
+a.to_buy_now:hover {
+    background:  #ff5555 none repeat scroll 0 0;
+    color: #fff;
+}
+
+

@@ -1,0 +1,248 @@
+.service-block{
+	//padding: 68px 0px 60px 0px;
+	position: relative;
+	.box{
+		border: 1px solid #ddd; cursor: pointer;
+		
+		.title{
+			position: relative;
+			border: 1px solid #ddd;
+			padding: 35px 20px 28px 20px; 
+			margin: 3px -5px -5px 3px;
+		 	overflow: hidden;
+			.icon{
+				position: absolute;
+				top: 16px; left: 20px;
+				font-size: 200%;
+				color: $primary-color;
+				margin-bottom: 0;
+				@include single-transition(all, 350ms);
+			}
+			.text{
+				position: absolute;
+				top: 22px;
+				left: 65px;
+				font-weight: bold; letter-spacing: 1px;
+			}
+		}
+		&:hover .fly_effect{top: -35px; left: 35px; cursor: pointer;}
+		&:hover .buzz_effect{
+			-webkit-animation-name: hvr-buzz-out;
+			  animation-name: hvr-buzz-out;
+			  -webkit-animation-duration: 0.75s;
+			  animation-duration: 0.75s;
+			  -webkit-animation-timing-function: linear;
+			  animation-timing-function: linear;
+			  -webkit-animation-iteration-count: 1;
+			  animation-iteration-count: 1;
+		}
+		&:hover .rotate_effect{@include rotate(90deg);}
+	}
+}
+
+
+.footer{padding: 60px 0 0; background: #f8f8f8;  border-top: 1px solid #ececec;}
+.footer .widget-title{color: $body-color-bold;}
+.footer .bery-hr, .top-footer .bery-hr {display: block; height: 2px;}
+
+
+.absolute-footer{
+	background-color:#fff; border-top: 1px solid #ececec; font-size: 100%;
+	float: none; text-align: center;  padding: 25px 0px 20px 0px;
+	li{
+		list-style: none; display: inline-block;margin-left: 20px;
+		a{
+			color: $body-font-color;
+			&:hover{
+				color: $color-hover;
+			}
+		}
+	}
+	.widget{
+		margin-bottom: 0px;
+	}
+	.menu{
+		margin-bottom: 15px;
+	}
+	&.dark{
+		background: #131313;
+		color: #ddd;
+		border: none;
+		a{
+			color: #ddd;
+		}
+		
+	}
+
+}
+
+.widget_text h4{color: #aaa; font-weight: bold; margin-top: 25px; margin-bottom: 15px;}
+.widget_nav_menu ul li a{ @include single-transition(all, 300ms);}
+
+.footer .contact-logo{margin-bottom: 20px;}
+
+.contact-icon.border-circle{position: relative; border: 1px solid #ddd; @include radius(99px); width: 38px; height: 38px; margin-right: 13px; background: #fff;}
+.contact-icon.border-circle .fa-paper-plane, .contact-icon.border-circle .fa-envelope{position: absolute; top: 25%; left: 27%;}
+.contact-icon.border-circle .fa-phone{position: absolute; top: 28%; left: 35%;}
+.footer-type-1{
+	background: #f8f8f8;
+	padding: 60px 0px 30px 0px;
+	border-top: 1px solid #f1f1f1;
+}
+
+.footer-type-2{
+	padding: 60px 0px 30px 0px;
+	background: #1e1e1e;
+	color: #ddd;
+	
+	h2, a{color: #ddd;}
+	input{
+		background: #343434 !important;
+		border: none !important;
+		&.button{
+			background: $color-hover !important;
+			color: #fff;
+		}
+	}
+	.social-icons span{background: #444;}
+}
+
+.footer-service-box{
+	padding: 20px 0px 60px 0px;
+	&:before{
+		display: block;
+		content: '';
+		height: 1px;
+		background: #ddd;
+		width: 35%;
+		margin: 0 auto;
+		margin-bottom: 55px;
+	}
+}
+
+
+/* Buzz Out */
+	@-webkit-keyframes hvr-buzz-out {
+	  10% {
+	    -webkit-transform: translateX(3px) rotate(2deg);
+	    transform: translateX(3px) rotate(2deg);
+	  }
+
+	  20% {
+	    -webkit-transform: translateX(-3px) rotate(-2deg);
+	    transform: translateX(-3px) rotate(-2deg);
+	  }
+
+	  30% {
+	    -webkit-transform: translateX(3px) rotate(2deg);
+	    transform: translateX(3px) rotate(2deg);
+	  }
+
+	  40% {
+	    -webkit-transform: translateX(-3px) rotate(-2deg);
+	    transform: translateX(-3px) rotate(-2deg);
+	  }
+
+	  50% {
+	    -webkit-transform: translateX(2px) rotate(1deg);
+	    transform: translateX(2px) rotate(1deg);
+	  }
+
+	  60% {
+	    -webkit-transform: translateX(-2px) rotate(-1deg);
+	    transform: translateX(-2px) rotate(-1deg);
+	  }
+
+	  70% {
+	    -webkit-transform: translateX(2px) rotate(1deg);
+	    transform: translateX(2px) rotate(1deg);
+	  }
+
+	  80% {
+	    -webkit-transform: translateX(-2px) rotate(-1deg);
+	    transform: translateX(-2px) rotate(-1deg);
+	  }
+
+	  90% {
+	    -webkit-transform: translateX(1px) rotate(0);
+	    transform: translateX(1px) rotate(0);
+	  }
+
+	  100% {
+	    -webkit-transform: translateX(-1px) rotate(0);
+	    transform: translateX(-1px) rotate(0);
+	  }
+	}
+
+	@keyframes hvr-buzz-out {
+	  10% {
+	    -webkit-transform: translateX(3px) rotate(2deg);
+	    transform: translateX(3px) rotate(2deg);
+	  }
+
+	  20% {
+	    -webkit-transform: translateX(-3px) rotate(-2deg);
+	    transform: translateX(-3px) rotate(-2deg);
+	  }
+
+	  30% {
+	    -webkit-transform: translateX(3px) rotate(2deg);
+	    transform: translateX(3px) rotate(2deg);
+	  }
+
+	  40% {
+	    -webkit-transform: translateX(-3px) rotate(-2deg);
+	    transform: translateX(-3px) rotate(-2deg);
+	  }
+
+	  50% {
+	    -webkit-transform: translateX(2px) rotate(1deg);
+	    transform: translateX(2px) rotate(1deg);
+	  }
+
+	  60% {
+	    -webkit-transform: translateX(-2px) rotate(-1deg);
+	    transform: translateX(-2px) rotate(-1deg);
+	  }
+
+	  70% {
+	    -webkit-transform: translateX(2px) rotate(1deg);
+	    transform: translateX(2px) rotate(1deg);
+	  }
+
+	  80% {
+	    -webkit-transform: translateX(-2px) rotate(-1deg);
+	    transform: translateX(-2px) rotate(-1deg);
+	  }
+
+	  90% {
+	    -webkit-transform: translateX(1px) rotate(0);
+	    transform: translateX(1px) rotate(0);
+	  }
+
+	  100% {
+	    -webkit-transform: translateX(-1px) rotate(0);
+	    transform: translateX(-1px) rotate(0);
+	  }
+	}
+
+	.hvr-buzz-out {
+	  display: inline-block;
+	  vertical-align: middle;
+	  -webkit-transform: translateZ(0);
+	  transform: translateZ(0);
+	  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	  -webkit-backface-visibility: hidden;
+	  backface-visibility: hidden;
+	  -moz-osx-font-smoothing: grayscale;
+	}
+	.hvr-buzz-out:hover, .hvr-buzz-out:focus, .hvr-buzz-out:active {
+	  -webkit-animation-name: hvr-buzz-out;
+	  animation-name: hvr-buzz-out;
+	  -webkit-animation-duration: 0.75s;
+	  animation-duration: 0.75s;
+	  -webkit-animation-timing-function: linear;
+	  animation-timing-function: linear;
+	  -webkit-animation-iteration-count: 1;
+	  animation-iteration-count: 1;
+	}

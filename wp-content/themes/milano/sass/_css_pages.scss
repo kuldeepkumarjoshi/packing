@@ -1,0 +1,306 @@
+
+
+article.type-post,article.hentry{margin-bottom: 60px;}
+
+
+.entry-header{margin-bottom: 10px}
+
+.entry-header .meta-author{margin-top: 10px; font-size: $font-size; text-align: center;}
+
+
+.entry-header .post-date-wrapper{position: relative; width: 90px; height: 90px; @include radius(99px); text-align: center; background: $primary-color; @include single-transition(all, 350ms);}
+.entry-header .post-date-wrapper:hover{background: darken($primary-color, 10%);}
+.entry-header .post-date{padding-top: 17px; text-align: center;}
+.entry-header .post-date span{display: block; text-align: center; color: #fff; text-transform: uppercase;}
+.entry-header .post-date .post-date-day{font-size: 250%;}
+.entry-header .post-date .post-date-month{font-size: 100%;}
+
+
+article.post .entry-content p{font-size: $font-size;}
+article.post .entry-header .entry-title{font-size: 150%;}
+.type-page h1.entry-title, .search-results .text-center h1.entry-title{margin-bottom: 30px;text-transform: uppercase;}
+.type-page .text-center h1.entry-title, .search-results .text-center h1.entry-title{margin-bottom: 15px;text-transform: uppercase;}
+
+.entry-image{position: relative;margin:10px 0px 15px;}
+.entry-image img{width: 100%;}
+
+
+.entry-summary{margin-top: 0px;}
+
+.entry-meta{padding: 15px 0;border-top: 1px dotted $border-light; border-bottom:1px solid $border;font-size: $font-size;}
+.entry-meta span.divider{opacity: 0.5;margin: 0 5px}
+.entry-meta-footer{border-top: 1px dotted $border;border-bottom: 1px solid $border;padding: 15px 0;overflow: hidden}
+.entry-meta span.meta-author{font-size: 100%;}
+
+body.archive h1.page-title,body.search-results h1.page-title{font-size: 120%;text-transform: uppercase;text-align: center;margin-bottom: 30px;color: #555;}
+
+.navigation-paging{width: 100%;overflow: hidden; font-size: 80%;}
+.navigation-paging .nav-previous,{float:right;}
+.navigation-paging .nav-next{float:left;}
+
+.navigation-paging a,.navigation-image a{color: black; display: block;border: 1px solid $border !important; @include radius(2px); padding: 7px 10px 7px; text-transform: uppercase; @include single-transition(all, 200ms); }
+.navigation-paging a:hover,.navigation-image a:hover{color: #FFF;background-color: $primary-color}
+
+.navigation-image{margin-top: 15px;}
+.navigation-image > div{display: inline-block;margin-right: 10px;}
+
+.author-box{padding: 30px 0;border-bottom: 1px solid $border;}
+.author-box p{font-size: $font-size;}
+.author-box .author-name{margin: 0}
+.author-box .author-title{text-transform: uppercase;}
+.post-date-wrapper{margin: 0 auto;}
+.blog header.entry-header .large-2.columns.text-center{margin-top: 8px;}
+
+
+.navigation-post{border-bottom: 1px solid $border;overflow: hidden;}
+.navigation-post a{padding: 30px 20px; display:block;width: 100%}
+.navigation-post span{display: inline-block;margin: 0 5px;top:1px;position: relative;}
+.navigation-post .nav-next{text-align: right;border-left: 1px solid #ddd}
+.navigation-post > div{display: inline-block;width: 48%}
+
+.gallery {margin-bottom: 30px;}
+.gallery a img { border: 0; }
+.gallery-item{margin-bottom: 0;}
+.gallery-item a img{cursor: pointer; cursor: -webkit-zoom-in; cursor: -moz-zoom-in; cursor: zoom-in;}
+
+.alignnone{clear: both;}
+.alignleft { display: inline; float: left; margin-right: 1.5em;}
+.alignright { display: inline; float: right; margin-left: 1.5em; margin-bottom: 1.5em}
+.aligncenter { clear: both; display: block; margin: 0 auto;}
+.post.sticky {border: 3px solid $primary-color;padding: 30px;}
+.post.sticky footer.entry-meta{border-bottom: 0}
+.hentry { margin: 0 0 1.5em; }
+.byline, .updated { display: none;}
+.single .byline, .group-blog .byline { display: inline;}
+.page-content, #tab-description p{-ms-word-wrap: break-word; word-wrap: break-word;font-size: $font-size;}
+.page-links { clear: both; margin: 0 0 1.5em;}
+
+.blog-list-style{border-bottom: 1px solid #eee;margin-bottom: 30px;}
+.blog-list-style article{margin-bottom: 30px; margin-top: 40px;}
+.blog-list-style:first-child article{margin-top: 10px;}
+.blog-list-style .entry-content, .blog-list-style .entry-image{margin-top: 0}
+.blog-list-style .cat-links a{text-transform: uppercase; color:#999;font-size: $font-size;}
+.blog-list-style .post-date{top:20px}
+
+.page-content img.wp-smiley, .entry-content img.wp-smiley,.comment-content img.wp-smiley {
+  border: none; margin-bottom: 0; margin-top: 0; padding: 0;
+}
+.wp-caption { border: 1px solid #ddd; margin-bottom: 1.5em; max-width: 100%;
+  background: #f6f6f6;
+}
+
+.post .entry-content:after{
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+
+.wp-caption img[class*="wp-image-"] { display: block; margin: 1.2% auto 0; max-width: 98%;}
+.wp-caption-text {text-align: center;}
+.wp-caption .wp-caption-text { padding: 10px 0; margin: 0 }
+.site-main .gallery { margin-bottom: 1.5em;}
+.gallery-caption {display: inline-block;}
+.site-main .gallery a img {border: none;height: auto;max-width: 90%;}
+.site-main .gallery dd {margin: 0;}
+.site-main .gallery-columns-4 .gallery-item {}
+.site-main .gallery-columns-4 .gallery-item img {}
+.size-auto, .size-full,.size-large,.size-medium,.size-thumbnail {max-width: 100%;height: auto;}
+
+embed, iframe, object { max-width: 100%; }
+
+
+.entry-attachment .attachment{margin-bottom: 15px;}
+
+
+.blog-share{margin-top: 30px; margin-bottom: 10px; text-align: center;}
+
+
+.comment-content a { word-wrap: break-word;}
+.bypostauthor {display: inline-block;}
+.comments-title{text-transform: uppercase;font-weight: normal;}
+.comments-title span{font-weight: bold;}
+.form-allowed-tags{font-size: $font-size;}
+
+#comments ul li,#comments ol li{list-style: none;width: 100%;}
+textarea#comment{height: 100px; font-size: 100% !important;}
+
+.comment-inner{position: relative; padding: 15px 15px; border: 1px solid $border-light; margin-bottom: 25px;}
+
+.comment-list > li{margin-bottom: 0px;}
+.comment-list cite.fn{color: #000; font-weight: normal; font-size: 150%; font-style: normal;}
+
+.comment-meta.commentmetadata{font-size: $font-size;text-transform: uppercase;}
+.comment-meta.commentmetadata{margin-top: 10px;}
+
+.comment-inner .reply a{position: absolute; top: -30px; right: 0px; display: block; background: #eee; width: 80px; text-align: center; text-transform: uppercase; border: 1px solid $border;}
+.comment-inner .reply a:hover{background: $primary-color; color: white !important;}
+
+.comment-form-author input,.comment-form-email input,.comment-form-url input{margin-bottom: 0}
+.comment-form-author,.comment-form-email,.comment-form-url{display: inline-block;width: 32.8%;position: relative;}
+.comment-form-author,.comment-form-email{padding-right: 10px;}
+#comments .reply a{color: $gray;font-size: $font-size;}
+.comment-form span.required{display: none;}
+#add_review .comment-form-author,#add_review .comment-form-email,#add_review .comment-form-url{width: 40%;margin-bottom: 0}
+
+
+#respond .form-allowed-tags{display: none;}
+#respond .form-submit{display: block;}
+
+.comment-list > li.comment > .comment-inner{}
+
+#comments ul.children{margin-left: 35px}
+
+
+.comment-list .children .comment-inner, .children #respond{border-top:1px solid $border-light;;padding: 15px;margin-right:0px;}
+.children #respond{padding: 15px 30px}
+
+
+.comment-list .children .children .comment-inner{}
+.comment-list .comment:last-child{border: 0};
+.children .comment{border:0;}
+
+
+
+/* My Account */
+.account-nav{margin-bottom: 40px;padding-top: 15px;}
+.my-account{
+  h1{text-transform: uppercase; padding-bottom: 15px; border-bottom: 1px solid #DDD;margin-bottom: 30px;}
+  h2{text-transform: uppercase; font-size: 100%;}
+  input{font-size: 100% !important;}
+  .bery-hr{margin-bottom: 20px;}
+}
+
+td.order-actions{text-align: right}
+.col2-set.addresses .col-1,.col2-set.addresses .col-2{width: 50%; float:left; padding-right: 30px;}
+.col2-set.addresses address{line-height: 150%;}
+.col2-set.addresses h3{font-size: 120%; text-transform: uppercase;}
+.account-user {position: relative;margin-top: 15px;overflow: hidden; border: 3px solid $border-light; padding :15px 15px 15px 80px;}
+.account-user .avatar{position: absolute;left:15px;top:15px;}
+.account-user span{display: block; padding-top: 6px; padding-left: 20px; text-transform: uppercase; font-weight: bold;}
+.account-user span a{display:inline-block;margin-top: 4px;font-size: 60%;}
+
+
+
+.wishlist_table .add_to_cart, .yith-wcwl-add-button > a.button.alt{@include radius(0px);}
+.wishlist_table .product-thumbnail img{width: 114px!important;padding-left: 0;margin-left: 20px; padding-top: 10px !important; padding-bottom: 10px !important; }
+
+
+
+.page-featured-item #content > ul{margin-left: 0;}
+
+li.featured-item a{display: block; @include single-transition(all, 200ms);}
+li.featured-item h3{text-transform: uppercase; line-height: 95%; font-size: 100%; padding: 15px 15px 0}
+
+.featured_item_cats{text-transform: uppercase; font-size: $font-size; display: block;margin-bottom: 15px;}
+.featured_item_cats a{ font-weight: bold;}
+
+.page-featured-item h1{text-transform: uppercase;}
+.featured_item_image{overflow: hidden;position: relative; }
+li.featured-item img{width: 100%; @include single-transition(all, 200ms); }
+li.featured-item:hover img{margin-top:-10px;}
+li.featured-item:hover a{background: #eee; padding-bottom: 10px;}
+
+li.featured-item.style_2:hover a{background-color:$primary-color;padding-bottom: 0}
+li.featured-item.style_2 .hover-text{position: absolute;bottom:30px;left:30px;right:30px;opacity: 0;text-shadow:1px 1px 1px rgba(0,0,0,0.2)}
+li.featured-item.style_2:hover .hover-text{opacity: 1}
+li.featured-item.style_2:hover img{margin-top: 0; -webkit-transform: scale(1.2); opacity: 0.3}
+
+.page-featured-item .item-tags{text-transform: uppercase; font-size: $font-size; padding-top: 10px; border-top: 1px dotted #ddd;margin-bottom: 15px;}
+.page-featured-item .item-tags span{font-weight: bold;margin-right: 10px}
+.page-featured-item .social-icons{margin-bottom: 15px}
+
+
+#back-to-site{position: fixed;top:0;left:0;z-index: 10;text-transform: uppercase; opacity: 0.8; font-weight: bold;}
+#back-to-site a{background: #000;padding: 5px; color:#FFF;}
+
+
+.entry-image-attachment {
+  overflow: hidden;
+  position: relative;
+}
+.entry-image-attachment img {
+  display: block;
+}
+
+.hover-mask{overflow: hidden;}
+.hover-mask:after, .hover-mask:before{
+   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    width: 50%;
+    z-index: 1;
+    @include single-transition(all, 500ms);
+}
+.hover-mask:hover:after, .hover-mask:hover:before{
+  opacity: 1;
+  transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  -o-transform: translateX(0px);
+  visibility: visible;
+}
+.hover-mask:after{
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -o-transform: translateX(100%);
+}
+.hover-mask:hover .icon-wrap {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transition: all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      -ms-transition: all 0.5s linear;
+      transition: all 0.5s linear;
+      -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=1)";
+      filter: alpha(opacity=1);
+      opacity: 1;
+    }
+.hover-mask .entry-image-attachment .icon-wrap {
+  display: block;
+  color: #fff;
+  @include both-align();
+  text-align: center;
+  background-color: transparent;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+  font-size: 180%;z-index: 10;
+}
+.hover-mask:hover .entry-image-attachment .icon-wrap {
+  -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+ .hover-mask img {
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+    }
+
