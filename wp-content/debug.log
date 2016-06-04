@@ -1,0 +1,214 @@
+[01-Jun-2016 18:17:23 UTC] PHP Strict standards:  Non-static method WC_Dependencies::woocommerce_active_check() should not be called statically in C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\woo-functions.php on line 13
+[01-Jun-2016 18:17:23 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:23 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:23 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:23 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-admin\admin.php:31
+[01-Jun-2016 18:17:23 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:17:23 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:17:23 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:17:23 UTC] PHP   7. is_woocommerce_active() C:\wamp\www\packing\wp-content\plugins\aftership-woocommerce-tracking\aftership.php:29
+[01-Jun-2016 18:17:23 UTC] PHP Strict standards:  Non-static method WC_Dependencies::init() should not be called statically in C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php on line 21
+[01-Jun-2016 18:17:23 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:23 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:23 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:23 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-admin\admin.php:31
+[01-Jun-2016 18:17:23 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:17:23 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:17:23 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:17:23 UTC] PHP   7. is_woocommerce_active() C:\wamp\www\packing\wp-content\plugins\aftership-woocommerce-tracking\aftership.php:29
+[01-Jun-2016 18:17:23 UTC] PHP   8. WC_Dependencies::woocommerce_active_check() C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\woo-functions.php:13
+[01-Jun-2016 18:17:24 UTC] PHP Warning:  error_log(/var/log/my-errors.log): failed to open stream: No such file or directory in C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php on line 149
+[01-Jun-2016 18:17:24 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:24 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:24 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:24 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-admin\admin.php:31
+[01-Jun-2016 18:17:24 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:17:24 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:17:24 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:17:24 UTC] PHP   7. error_log() C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php:149
+[01-Jun-2016 18:17:24 UTC] PHP Warning:  error_log(var/log/my-errors.log): failed to open stream: No such file or directory in C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php on line 217
+[01-Jun-2016 18:17:24 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:24 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:24 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:24 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-admin\admin.php:31
+[01-Jun-2016 18:17:24 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:17:24 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:17:24 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:17:24 UTC] PHP   7. error_log() C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php:217
+[01-Jun-2016 18:17:24 UTC] PHP Warning:  error_log(var/log/my-errors.log): failed to open stream: No such file or directory in C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php on line 245
+[01-Jun-2016 18:17:24 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:24 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:24 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:24 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-admin\admin.php:31
+[01-Jun-2016 18:17:24 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:17:24 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:17:24 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:17:24 UTC] PHP   7. error_log() C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php:245
+[01-Jun-2016 18:17:24 UTC] PHP Warning:  error_log(var/log/my-errors.log): failed to open stream: No such file or directory in C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php on line 268
+[01-Jun-2016 18:17:24 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:24 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:24 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:24 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-admin\admin.php:31
+[01-Jun-2016 18:17:24 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:17:24 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:17:24 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:17:24 UTC] PHP   7. error_log() C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php:268
+[01-Jun-2016 18:17:24 UTC] PHP Warning:  error_log(var/log/my-errors.log): failed to open stream: No such file or directory in C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php on line 283
+[01-Jun-2016 18:17:24 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:24 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:24 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:24 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-admin\admin.php:31
+[01-Jun-2016 18:17:24 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:17:24 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:17:24 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:17:24 UTC] PHP   7. error_log() C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php:283
+[01-Jun-2016 18:17:26 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\pluggable.php on line 1228
+[01-Jun-2016 18:17:26 UTC] PHP Stack trace:
+[01-Jun-2016 18:17:26 UTC] PHP   1. {main}() C:\wamp\www\packing\wp-admin\index.php:0
+[01-Jun-2016 18:17:26 UTC] PHP   2. require_once() C:\wamp\www\packing\wp-admin\index.php:10
+[01-Jun-2016 18:17:26 UTC] PHP   3. auth_redirect() C:\wamp\www\packing\wp-admin\admin.php:84
+[01-Jun-2016 18:17:26 UTC] PHP   4. wp_redirect() C:\wamp\www\packing\wp-includes\pluggable.php:1088
+[01-Jun-2016 18:17:26 UTC] PHP   5. header() C:\wamp\www\packing\wp-includes\pluggable.php:1228
+[01-Jun-2016 18:29:25 UTC] PHP Strict standards:  Non-static method WC_Dependencies::woocommerce_active_check() should not be called statically in C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\woo-functions.php on line 13
+[01-Jun-2016 18:29:25 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:25 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:25 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:25 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-blog-header.php:12
+[01-Jun-2016 18:29:25 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:29:25 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:29:25 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:29:25 UTC] PHP   7. is_woocommerce_active() C:\wamp\www\packing\wp-content\plugins\aftership-woocommerce-tracking\aftership.php:29
+[01-Jun-2016 18:29:25 UTC] PHP Strict standards:  Non-static method WC_Dependencies::init() should not be called statically in C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php on line 21
+[01-Jun-2016 18:29:25 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:25 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:25 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:25 UTC] PHP   3. require_once() C:\wamp\www\packing\wp-blog-header.php:12
+[01-Jun-2016 18:29:25 UTC] PHP   4. require_once() C:\wamp\www\packing\wp-load.php:37
+[01-Jun-2016 18:29:25 UTC] PHP   5. require_once() C:\wamp\www\packing\wp-config.php:94
+[01-Jun-2016 18:29:25 UTC] PHP   6. include_once() C:\wamp\www\packing\wp-settings.php:254
+[01-Jun-2016 18:29:25 UTC] PHP   7. is_woocommerce_active() C:\wamp\www\packing\wp-content\plugins\aftership-woocommerce-tracking\aftership.php:29
+[01-Jun-2016 18:29:25 UTC] PHP   8. WC_Dependencies::woocommerce_active_check() C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\woo-functions.php:13
+[01-Jun-2016 18:29:27 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\packing\wp-content\plugins\rest-api\plugin.php on line 186
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. do_action() C:\wamp\www\packing\wp-includes\rest-api.php:169
+[01-Jun-2016 18:29:27 UTC] PHP  10. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:525}() C:\wamp\www\packing\wp-includes\plugin.php:525
+[01-Jun-2016 18:29:27 UTC] PHP  11. create_initial_rest_routes() C:\wamp\www\packing\wp-includes\plugin.php:525
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php on line 1149
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. WP_REST_Server->send_header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:228
+[01-Jun-2016 18:29:27 UTC] PHP  11. header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:1149
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php on line 1149
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. WP_REST_Server->send_header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:235
+[01-Jun-2016 18:29:27 UTC] PHP  11. header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:1149
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php on line 1149
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. WP_REST_Server->send_header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:236
+[01-Jun-2016 18:29:27 UTC] PHP  11. header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:1149
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php on line 1149
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. WP_REST_Server->send_header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:237
+[01-Jun-2016 18:29:27 UTC] PHP  11. header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:1149
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php on line 1149
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. WP_REST_Server->send_headers() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:357
+[01-Jun-2016 18:29:27 UTC] PHP  11. WP_REST_Server->send_header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:1162
+[01-Jun-2016 18:29:27 UTC] PHP  12. header() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:1149
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api.php on line 376
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. apply_filters() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:376
+[01-Jun-2016 18:29:27 UTC] PHP  11. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:235}() C:\wamp\www\packing\wp-includes\plugin.php:235
+[01-Jun-2016 18:29:27 UTC] PHP  12. rest_send_cors_headers() C:\wamp\www\packing\wp-includes\plugin.php:235
+[01-Jun-2016 18:29:27 UTC] PHP  13. header() C:\wamp\www\packing\wp-includes\rest-api.php:376
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api.php on line 377
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. apply_filters() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:376
+[01-Jun-2016 18:29:27 UTC] PHP  11. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:235}() C:\wamp\www\packing\wp-includes\plugin.php:235
+[01-Jun-2016 18:29:27 UTC] PHP  12. rest_send_cors_headers() C:\wamp\www\packing\wp-includes\plugin.php:235
+[01-Jun-2016 18:29:27 UTC] PHP  13. header() C:\wamp\www\packing\wp-includes\rest-api.php:377
+[01-Jun-2016 18:29:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\packing\wp-content\plugins\Woocommerce PayUMoney Integration Kit\woo-includes\class-wc-dependencies.php:21) in C:\wamp\www\packing\wp-includes\rest-api.php on line 378
+[01-Jun-2016 18:29:27 UTC] PHP Stack trace:
+[01-Jun-2016 18:29:27 UTC] PHP   1. {main}() C:\wamp\www\packing\index.php:0
+[01-Jun-2016 18:29:27 UTC] PHP   2. require() C:\wamp\www\packing\index.php:17
+[01-Jun-2016 18:29:27 UTC] PHP   3. wp() C:\wamp\www\packing\wp-blog-header.php:14
+[01-Jun-2016 18:29:27 UTC] PHP   4. WP->main() C:\wamp\www\packing\wp-includes\functions.php:952
+[01-Jun-2016 18:29:27 UTC] PHP   5. WP->parse_request() C:\wamp\www\packing\wp-includes\class-wp.php:679
+[01-Jun-2016 18:29:27 UTC] PHP   6. do_action_ref_array() C:\wamp\www\packing\wp-includes\class-wp.php:362
+[01-Jun-2016 18:29:27 UTC] PHP   7. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:601}() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   8. rest_api_loaded() C:\wamp\www\packing\wp-includes\plugin.php:601
+[01-Jun-2016 18:29:27 UTC] PHP   9. WP_REST_Server->serve_request() C:\wamp\www\packing\wp-includes\rest-api.php:172
+[01-Jun-2016 18:29:27 UTC] PHP  10. apply_filters() C:\wamp\www\packing\wp-includes\rest-api\class-wp-rest-server.php:376
+[01-Jun-2016 18:29:27 UTC] PHP  11. call_user_func_array:{C:\wamp\www\packing\wp-includes\plugin.php:235}() C:\wamp\www\packing\wp-includes\plugin.php:235
+[01-Jun-2016 18:29:27 UTC] PHP  12. rest_send_cors_headers() C:\wamp\www\packing\wp-includes\plugin.php:235
+[01-Jun-2016 18:29:27 UTC] PHP  13. header() C:\wamp\www\packing\wp-includes\rest-api.php:378

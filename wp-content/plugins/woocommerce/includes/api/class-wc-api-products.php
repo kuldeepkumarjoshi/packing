@@ -592,7 +592,7 @@ class WC_API_Products extends WC_API_Resource {
 	public function get_product_category( $id, $fields = null ) {
 		try {
 			$id = absint( $id );
-
+//error_log('in pro id '.PHP_EOL, 3, "var/log/my-errors.log");
 			// Validate ID
 			if ( empty( $id ) ) {
 				throw new WC_API_Exception( 'woocommerce_api_invalid_product_category_id', __( 'Invalid product category ID', 'woocommerce' ), 400 );
@@ -602,8 +602,19 @@ class WC_API_Products extends WC_API_Resource {
 			if ( ! current_user_can( 'manage_product_terms' ) ) {
 				throw new WC_API_Exception( 'woocommerce_api_user_cannot_read_product_categories', __( 'You do not have permission to read product categories', 'woocommerce' ), 401 );
 			}
-
+//	error_log('et_term' , 3, "var/log/my-errors.log");
 			$term = get_term( $id, 'product_cat' );
+		//	$t_id = get_queried_object()->$term->term_id;
+
+			$minQuantity = get_term_meta( $term->term_id, 'minQuantity', true );
+			$stepValue = get_term_meta( $term->term_id, 'stepValue', true );
+			if(!$minQuantity || $minQuantity == null){
+				$minQuantity =1;
+			}
+			if(!$stepValue || $stepValue == null){
+				$stepValue =1;
+			}
+
 
 			if ( is_wp_error( $term ) || is_null( $term ) ) {
 				throw new WC_API_Exception( 'woocommerce_api_invalid_product_category_id', __( 'A product category with the provided ID could not be found', 'woocommerce' ), 404 );
@@ -628,7 +639,9 @@ class WC_API_Products extends WC_API_Resource {
 				'description' => $term->description,
 				'display'     => $display_type ? $display_type : 'default',
 				'image'       => $image ? esc_url( $image ) : '',
-				'count'       => intval( $term->count )
+				'count'       => intval( $term->count ),
+				'minQuantity' => intval($minQuantity ),
+				'stepValue' => intval($stepValue )
 			);
 
 			return array( 'product_category' => apply_filters( 'woocommerce_api_product_category_response', $product_category, $id, $fields, $term, $this ) );

@@ -25,11 +25,11 @@ function leetheme_register_required_plugins() {
 
 
 		array(
-			'name'     				=> 'WooCommerce', 
+			'name'     				=> 'WooCommerce',
 			'slug'     				=> 'woocommerce',
-			'source'   				=> get_template_directory() . '/includes/plugins/woocommerce.zip', 
+			'source'   				=> get_template_directory() . '/includes/plugins/woocommerce.zip',
 			'required' 				=> true,
-			'version' 				=> '2.4.6', 
+			'version' 				=> '2.4.6',
 			'force_activation' 		=> false,
 			'force_deactivation' 	=> false,
 			'external_url' 			=> '',
@@ -74,7 +74,7 @@ function leetheme_register_required_plugins() {
 			'force_deactivation' 	=> false,
 			'external_url' 			=> '',
 		),
-		
+
 		array(
 			'name'     				=> 'Taxonomy Metadata',
 			'slug'     				=> 'taxonomy-metadata',
@@ -85,7 +85,7 @@ function leetheme_register_required_plugins() {
 			'force_deactivation' 	=> false,
 			'external_url' 			=> '',
 		),
-		
+
 		array(
 			'name'     				=> 'Unlimited Sidebars Woosidebars',
 			'slug'     				=> 'woosidebars',
@@ -96,7 +96,7 @@ function leetheme_register_required_plugins() {
 			'force_deactivation' 	=> false,
 			'external_url' 			=> '',
 		),
-		
+
 		array(
 			'name'     				=> 'YITH WooCommerce Ajax Search',
 			'slug'     				=> 'yith-woocommerce-ajax-search',
@@ -206,7 +206,7 @@ function leetheme_setup() {
 	require( get_template_directory() . '/includes/metabox/lee-metabox.php');
 
 	require_once(get_template_directory() . '/includes/lee_mega_menu/lee_mega_menu.php');
-	
+
 
 	load_theme_textdomain( 'ltheme_domain', get_template_directory() . '/languages' );
 	add_theme_support( 'woocommerce' );
@@ -244,7 +244,7 @@ function leetheme_setup() {
 	}
 
 }
-endif; 
+endif;
 add_action( 'after_setup_theme', 'leetheme_setup' );
 
 
@@ -338,7 +338,7 @@ include_once(get_template_directory() .'/includes/widgets/lee-product-categories
  * Enqueue scripts and styles
  */
 function leetheme_scripts() {
-	
+
 	global $ros_opt;
 
 	wp_enqueue_style( 'leetheme-icons', get_template_directory_uri() .'/css/fonts.css', array(), '1.0', 'all' );
@@ -364,21 +364,21 @@ function leetheme_scripts() {
 	wp_enqueue_script( 'leetheme-parallax', get_template_directory_uri() .'/js/min/jquery.stellar.min.js', array(), false, true );
 	wp_enqueue_script( 'leetheme-countdown', get_template_directory_uri() .'/js/min/countdown.min.js', array(), false, true );
 	wp_enqueue_script( 'leetheme-easyzoom', get_template_directory_uri() .'/js/min/jquery.easyzoom.min.js', array(), false, true );
-	
+
 	wp_enqueue_script( 'leetheme-theme-js', get_template_directory_uri() .'/js/min/main.min.js', array(), '1.8', true );
-	
+
 	wp_enqueue_script( 'leetheme-wow-js', get_template_directory_uri() .'/js/min/wow.min.js', array(), false, true );
 
 	wp_deregister_style('yith-wcwl-font-awesome');
 	wp_deregister_style('yith-wcwl-font-awesome-ie7');
 	wp_deregister_style('yith-wcwl-main');
 	wp_deregister_style('nextend_fb_connect_stylesheet');
-	
-	
+
+
 	if ( ! is_admin() ) {
-	wp_deregister_style('woocommerce-layout');	
-	wp_deregister_style('woocommerce-smallscreen');	
-	wp_deregister_style('woocommerce-general');	
+	wp_deregister_style('woocommerce-layout');
+	wp_deregister_style('woocommerce-smallscreen');
+	wp_deregister_style('woocommerce-general');
 	}
 
 
@@ -467,113 +467,170 @@ if ( is_plugin_active( 'js_composer/js_composer.php' ) ) {
 	add_filter( 'vc_shortcodes_css_class', 'leetheme_customize_vc_rows_columns', 10, 2 );
 }
 
+
+// custom code start
+add_action( 'init', 'wpm_product_cat_register_meta' );
 /**
-
-* Add new register fields for WooCommerce registration.
-
-*
-
-* @return string Register fields HTML.
-
-*/
-
-function wooc_extra_register_fields() {
-
-       ?>
-
-
-
-       <p class="form-row form-row-first">
-
-       <label for="reg_billing_first_name"><?php _e( 'First name', 'woocommerce' ); ?><span class="required">*</span></label>
-
-       <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />
-
-       </p>
-
-
-
-       <p class="form-row form-row-last">
-
-       <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?><span class="required">*</span></label>
-
-       <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
-
-       </p>
-
-
-
-       <div class="clear"></div>
-
-
-
-       <p class="form-row form-row-wide">
-
-       <label for="reg_billing_phone"><?php _e( 'Phone', 'woocommerce' ); ?><span class="required">*</span></label>
-
-       <input type="text" class="input-text" name="billing_phone" id="reg_billing_phone" value="<?php if ( ! empty( $_POST['billing_phone'] ) ) esc_attr_e( $_POST['billing_phone'] ); ?>" />
-
-       </p>
-
-
-
-       <?php
-
+ * Register details product_cat meta.
+ *
+ * Register the details metabox for WooCommerce product categories.
+ *
+ */
+function wpm_product_cat_register_meta() {
+	register_meta( 'term', 'minQuantity', 'wpm_sanitize_minQuantity' );
+	register_meta( 'term', 'stepValue', 'wpm_sanitize_stepValue' );
+}
+/**
+ * Sanitize the minQuantity custom meta field.
+ *
+ * @param  string minQuantity The existing details field.
+ * @return string          The sanitized details field
+ */
+function wpm_sanitize_minQuantity( $minQuantity ) {
+	return wp_kses_post( $minQuantity );
+}
+function wpm_sanitize_stepValue( $stepValue ) {
+	return wp_kses_post( $stepValue );
 }
 
 
-
-add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
-
-
+add_action( 'product_cat_add_form_fields', 'wpm_product_cat_add_fields_meta' );
 /**
+ * Add a details metabox to the Add New Product Category page.
+ *
+ * For adding a details metabox to the WordPress admin when
+ * creating new product categories in WooCommerce.
+ *
+ */
+function wpm_product_cat_add_fields_meta() {
 
-* Validate the extra register fields.
-
-*
-
-* @param string $username         Current username.
-
-* @param string $email             Current email.
-
-* @param object $validation_errorsWP_Error object.
-
-*
-
-* @return void
-
-*/
-
-function wooc_validate_extra_register_fields( $username, $email, $validation_errors ) {
-
-       if ( isset( $_POST['billing_first_name'] ) && empty( $_POST['billing_first_name'] ) ) {
-
-              $validation_errors->add( 'billing_first_name_error', __( '<strong>Error</strong>: First name is required!', 'woocommerce' ) );
-
-       }
-
-
-
-       if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
-
-              $validation_errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
-
-       }
-
-
-
-
-
-       if ( isset( $_POST['billing_phone'] ) && empty( $_POST['billing_phone'] ) ) {
-
-              $validation_errors->add( 'billing_phone_error', __( '<strong>Error</strong>: Phone is required!.', 'woocommerce' ) );
-
-       }
-
+	wp_nonce_field( basename( __FILE__ ), 'wpm_product_cat_minQuantity_nonce' );
+	?>
+	<div class="form-field">
+		<label for="wpm-product-cat-minQuantity"><?php esc_html_e( 'Min Quantity', 'wpm' ); ?></label>
+		<input name="wpm-product-cat-minQuantity" id="wpm-product-cat-minQuantity" >
+		<p class="description"><?php esc_html_e( 'Min quantity of related product customer will have to buy.', 'wpm' ); ?></p>
+	</div>
+	<?php
+	wp_nonce_field( basename( __FILE__ ), 'wpm_product_cat_stepValue_nonce' );
+	?>
+	<div class="form-field">
+		<label for="wpm-product-cat-stepValue"><?php esc_html_e( 'Step Value', 'wpm' ); ?></label>
+		<input name="wpm-product-cat-stepValue" id="wpm-product-cat-stepValue" >
+		<p class="description"><?php esc_html_e( 'Unit value to increase in quantity.', 'wpm' ); ?></p>
+	</div>
+	<?php
 }
 
 
+	add_action( 'product_cat_edit_form_fields', 'wpm_product_cat_edit_fields_meta' );
+	/**
+	 * Add a details metabox to the Edit Product Category page.
+	 *
+	 * For adding a details metabox to the WordPress admin when
+	 * editing an existing product category in WooCommerce.
+	 *
+	 * @param  object $term The existing term object.
+	 */
+	function wpm_product_cat_edit_fields_meta( $term ) {
 
-add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
 
-?>
+		$product_cat_minQuantity = get_term_meta( $term->term_id, 'minQuantity', true );
+		if ( ! $product_cat_minQuantity ) {
+			$product_cat_minQuantity = '';
+		}
+		$settings = array( 'input_name1' => 'wpm-product-cat-minQuantity' );
+		?>
+		<tr class="form-field">
+			<th scope="row" valign="top"><label for="wpm-product-cat-minQuantity"><?php esc_html_e( 'Min Quantity', 'wpm' ); ?></label></th>
+			<td>
+				<?php wp_nonce_field( basename( __FILE__ ), 'wpm_product_cat_minQuantity_nonce' ); ?>
+				<input name="wpm-product-cat-minQuantity" id="wpm-product-cat-minQuantity" value="<?php echo $product_cat_minQuantity ?>">
+				<p class="description"><?php esc_html_e( 'Min quantity of related product customer will have to buy.','wpm' ); ?></p>
+			</td>
+		</tr>
+		<?php
+
+		$product_cat_stepValue = get_term_meta( $term->term_id, 'stepValue', true );
+		if ( ! $product_cat_stepValue ) {
+			$product_cat_stepValue = '';
+		}
+		$settings = array( 'input_name' => 'wpm-product-cat-stepValue' );
+		?>
+		<tr class="form-field">
+			<th scope="row" valign="top"><label for="wpm-product-cat-stepValue"><?php esc_html_e( 'Step Value', 'wpm' ); ?></label></th>
+			<td>
+				<?php wp_nonce_field( basename( __FILE__ ), 'wpm_product_cat_stepValue_nonce' ); ?>
+					<input name="wpm-product-cat-stepValue" id="wpm-product-cat-stepValue" value="<?php echo $product_cat_stepValue ?>">
+				<p class="description"><?php esc_html_e( 'Unit value to increase in quantity.','wpm' ); ?></p>
+			</td>
+		</tr>
+		<?php
+	}
+
+	add_action( 'create_product_cat', 'wpm_product_cat_fields_meta_save' );
+	add_action( 'edit_product_cat', 'wpm_product_cat_fields_meta_save' );
+	/**
+	 * Save Product Category details meta.
+	 *
+	 * Save the product_cat details meta POSTed from the
+	 * edit product_cat page or the add product_cat page.
+	 *
+	 * @param  int $term_id The term ID of the term to update.
+	 */
+	function wpm_product_cat_fields_meta_save( $term_id ) {
+		
+
+		if ( ! isset( $_POST['wpm_product_cat_minQuantity_nonce'] ) || ! wp_verify_nonce( $_POST['wpm_product_cat_minQuantity_nonce'], basename( __FILE__ ) ) ) {
+			return;
+		}
+		$old_minQuantity = get_term_meta( $term_id, 'minQuantity', true );
+	//	error_log('min '.print_r($old_minQuantity,true), 3, "var/log/my-errors.log");
+		$new_minQuantity = isset( $_POST['wpm-product-cat-minQuantity'] ) ? $_POST['wpm-product-cat-minQuantity'] : '';
+//			error_log('min '.print_r($new_minQuantity,true), 3, "var/log/my-errors.log");
+		if ( $old_minQuantity && '' === $new_minQuantity ) {
+			delete_term_meta( $term_id, 'minQuantity' );
+		} else if ( $old_minQuantity !== $new_minQuantity ) {
+			update_term_meta(
+				$term_id,
+				'minQuantity',
+				wpm_sanitize_minQuantity( $new_minQuantity )
+			);
+		}
+
+		if ( ! isset( $_POST['wpm_product_cat_stepValue_nonce'] ) || ! wp_verify_nonce( $_POST['wpm_product_cat_stepValue_nonce'], basename( __FILE__ ) ) ) {
+			return;
+		}
+		$old_stepValue = get_term_meta( $term_id, 'stepValue', true );
+		$new_stepValue = isset( $_POST['wpm-product-cat-stepValue'] ) ? $_POST['wpm-product-cat-stepValue'] : '';
+		if ( $old_stepValue && '' === $new_stepValue ) {
+			delete_term_meta( $term_id, 'stepValue' );
+		} else if ( $old_stepValue !== $new_stepValue ) {
+			update_term_meta(
+				$term_id,
+				'stepValue',
+				wpm_sanitize_stepValue( $new_stepValue )
+			);
+		}
+	}
+
+
+// add_action( 'woocommerce_after_shop_loop', 'wpm_product_cat_display_details_meta' );
+// /**
+//  * Display details meta on Product Category archives.
+//  *
+//  */
+// function wpm_product_cat_display_details_meta() {
+// 	if ( ! is_tax( 'product_cat' ) ) {
+// 		return;
+// 	}
+// 	$t_id = get_queried_object()->term_id;
+// 	$details = get_term_meta( $t_id, 'details', true );
+// 	if ( '' !== $details ) {
+// 		?/>
+// 		<div class="product-cat-details">
+// 			<?php echo apply_filters( 'the_content', wp_kses_post( $details ) ); ?/>
+// 		</div>
+// 		<?php
+// 	}
+// }

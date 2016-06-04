@@ -82,6 +82,7 @@ $table_prefix  = 'pn_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', false);
+define('WP_DEBUG_LOG',     false);
 
 /* That's all, stop editing! Happy blogging. */
 
