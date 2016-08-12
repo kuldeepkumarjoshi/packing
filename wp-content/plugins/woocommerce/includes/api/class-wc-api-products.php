@@ -211,6 +211,18 @@ class WC_API_Products extends WC_API_Resource {
 			$product_data['parent'] = $this->get_product_data( $_product );
 		}
 
+
+
+			$wcPrinceRule = RP_WCDPD::get_instance();
+			$wcPrinceRule->opt['settings']['display_offers']="show";
+			global $product;
+			$product =  wc_get_product( $id);
+			$table_data=	 $wcPrinceRule->product_page_pricing_table_custom();
+		//		error_log('$table_data::'.print_R($table_data,TRUE), 3, "var/log/my-errors.log");
+				if(! empty($table_data )){
+						$product_data['tableData'] =$table_data;
+				}
+
 		return array( 'product' => apply_filters( 'woocommerce_api_product_response', $product_data, $product, $fields, $this->server ) );
 	}
 
@@ -592,7 +604,7 @@ class WC_API_Products extends WC_API_Resource {
 	public function get_product_category( $id, $fields = null ) {
 		try {
 			$id = absint( $id );
-//error_log('in pro id '.PHP_EOL, 3, "var/log/my-errors.log");
+//error_log('in pro id '.$id, 3, "var/log/my-errors.log");
 			// Validate ID
 			if ( empty( $id ) ) {
 				throw new WC_API_Exception( 'woocommerce_api_invalid_product_category_id', __( 'Invalid product category ID', 'woocommerce' ), 400 );
@@ -631,6 +643,7 @@ class WC_API_Products extends WC_API_Resource {
 				$image = wp_get_attachment_url( $image_id );
 			}
 
+
 			$product_category = array(
 				'id'          => $term_id,
 				'name'        => $term->name,
@@ -641,7 +654,8 @@ class WC_API_Products extends WC_API_Resource {
 				'image'       => $image ? esc_url( $image ) : '',
 				'count'       => intval( $term->count ),
 				'minQuantity' => intval($minQuantity ),
-				'stepValue' => intval($stepValue )
+				'stepValue' => intval($stepValue ),
+				'tableData' => $table_data
 			);
 
 			return array( 'product_category' => apply_filters( 'woocommerce_api_product_category_response', $product_category, $id, $fields, $term, $this ) );

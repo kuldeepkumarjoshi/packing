@@ -9,10 +9,10 @@
  * Author URI: http://www.rightpress.net
  * Requires at least: 3.5
  * Tested up to: 3.9
- * 
+ *
  * Text Domain: rp_wcdpd
  * Domain Path: /languages
- * 
+ *
  * @package WooCommerce Dynamic Pricing And Discounts
  * @category Core
  * @author RightPress
@@ -33,7 +33,7 @@ if (!class_exists('RP_WCDPD')) {
 
     /**
      * Main plugin class
-     * 
+     *
      * @package WooCommerce Dynamic Pricing Pro
      * @author RightPress
      */
@@ -55,7 +55,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Class constructor
-         * 
+         *
          * @access public
          * @return void
          */
@@ -121,7 +121,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Function hooked to init
-         * 
+         *
          * @access public
          * @return void
          */
@@ -129,7 +129,7 @@ if (!class_exists('RP_WCDPD')) {
         {
             if (is_admin() && !defined('DOING_AJAX')) {
 
-                
+
 
             }
             else {
@@ -144,7 +144,7 @@ if (!class_exists('RP_WCDPD')) {
         /**
          * Replace original prices with discounted product prices in output html
          * This only makes sense when a basic quantity pricing table is used (with no further conditions)
-         * 
+         *
          * @access public
          * @param string $product_price
          * @param object $product
@@ -157,7 +157,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Replace original prices with discounted item prices in cart html
-         * 
+         *
          * @access public
          * @param string $item_price
          * @param array $cart_item
@@ -184,7 +184,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Apply discounts to cart
-         * 
+         *
          * @access public
          * @return void
          */
@@ -246,7 +246,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Temporary enable coupons to remove any when needed
-         * 
+         *
          * @access public
          * @return string
          */
@@ -257,7 +257,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Apply fake coupon to cart
-         * 
+         *
          * @access public
          * @return void
          */
@@ -288,7 +288,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Maybe add virtual coupon for cart discounts
-         * 
+         *
          * @access public
          * @param bool $unknown_param
          * @param string $coupon_code
@@ -325,7 +325,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Actually apply calculated pricing adjustment
-         * 
+         *
          * @access public
          * @param string $cart_item_key
          * @param array $adjustment
@@ -352,7 +352,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Sort cart by price
-         * 
+         *
          * @access public
          * @param array $cart
          * @param string $order
@@ -373,7 +373,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Sort cart by price uasort collable - ascending
-         * 
+         *
          * @access public
          * @param mixed $first
          * @param mixed $second
@@ -389,7 +389,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Sort cart by price uasort collable - descending
-         * 
+         *
          * @access public
          * @param mixed $first
          * @param mixed $second
@@ -405,7 +405,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Sort pricing table - ascending
-         * 
+         *
          * @access public
          * @param mixed $first
          * @param mixed $second
@@ -418,7 +418,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Normalize quantity pricing table (add 1-X row etc)
-         * 
+         *
          * @access public
          * @param array $original_table
          * @return bool
@@ -542,17 +542,19 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Maybe display pricing table or anchor to display pricing table in modal
-         * 
+         *
          * @access public
          * @return void
          */
         public function product_page_pricing_table()
         {
+
             if ($this->opt['settings']['display_table'] == 'hide' && (!isset($this->opt['settings']['display_offers']) || $this->opt['settings']['display_offers'] == 'hide')) {
                 return;
             }
 
             global $product;
+        //    error_log('$product::'.print_R($product,TRUE), 3, "var/log/my-errors.log");
 
             if (!$product) {
                 return;
@@ -568,6 +570,7 @@ if (!class_exists('RP_WCDPD')) {
                 foreach ($this->opt['pricing']['sets'] as $rule_key => $rule) {
 
                     if ($rule['method'] == 'quantity' && $validated_rule = RP_WCDPD_Pricing::validate_rule($rule)) {
+
                         if ($validated_rule['selection_method'] == 'all' && $this->user_matches_rule($validated_rule)) {
                             $selected_rule = $validated_rule;
                             break;
@@ -635,6 +638,7 @@ if (!class_exists('RP_WCDPD')) {
                         }
                         else {
                             $table_data = $this->pricing_table_calculate_adjusted_prices($selected_rule['pricing'], $product->get_price());
+
                         }
 
                         require_once RP_WCDPD_PLUGIN_PATH . 'includes/views/frontend/table-' . $this->opt['settings']['display_table'] . '-' . $this->opt['settings']['pricing_table_style'] . '.php';
@@ -645,9 +649,107 @@ if (!class_exists('RP_WCDPD')) {
             }
         }
 
+        public function product_page_pricing_table_custom()
+        {
+            if ($this->opt['settings']['display_table'] == 'hide' && (!isset($this->opt['settings']['display_offers']) || $this->opt['settings']['display_offers'] == 'hide')) {
+                return;
+            }
+
+            global $product;
+            if (!$product) {
+                return;
+            }
+        //    error_log('product_page_pricing_table_custom::', 3, "var/log/my-errors.log");
+            // Load required classes
+            require_once RP_WCDPD_PLUGIN_PATH . 'includes/classes/Pricing.php';
+
+            $selected_rule = null;
+
+            // Iterate over pricing rules and use the first one that has this product in conditions (or does not have if condition "not in list")
+            if (isset($this->opt['pricing']['sets']) && count($this->opt['pricing']['sets'])) {
+                foreach ($this->opt['pricing']['sets'] as $rule_key => $rule) {
+
+                    if ($rule['method'] == 'quantity' && $validated_rule = RP_WCDPD_Pricing::validate_rule($rule)) {
+
+                        if ($validated_rule['selection_method'] == 'all' && $this->user_matches_rule($validated_rule)) {
+                            $selected_rule = $validated_rule;
+                            break;
+                        }
+                        if ($validated_rule['selection_method'] == 'categories_include' && count(array_intersect($this->get_product_categories($product->id), $validated_rule['categories'])) > 0 && $this->user_matches_rule($validated_rule)) {
+                            $selected_rule = $validated_rule;
+                            break;
+                        }
+                        if ($validated_rule['selection_method'] == 'categories_exclude' && count(array_intersect($this->get_product_categories($product->id), $validated_rule['categories'])) == 0 && $this->user_matches_rule($validated_rule)) {
+                            $selected_rule = $validated_rule;
+                            break;
+                        }
+                        if ($validated_rule['selection_method'] == 'products_include' && in_array($product->id, $validated_rule['products']) && $this->user_matches_rule($validated_rule)) {
+                            $selected_rule = $validated_rule;
+                            break;
+                        }
+                        if ($validated_rule['selection_method'] == 'products_exclude' && !in_array($product->id, $validated_rule['products']) && $this->user_matches_rule($validated_rule)) {
+                            $selected_rule = $validated_rule;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (is_array($selected_rule)) {
+
+                // Quantity
+                if ($selected_rule['method'] == 'quantity' && in_array($this->opt['settings']['display_table'], array('modal', 'inline')) && isset($selected_rule['pricing'])) {
+
+                    if ($product->product_type == 'variable') {
+                        $product_variations = $product->get_available_variations();
+                    }
+
+                    // For variable products only - check if prices differ for different variations
+                    $multiprice_variable_product = false;
+
+                    if ($product->product_type == 'variable' && !empty($product_variations)) {
+                        $last_product_variation = array_slice($product_variations, -1);
+                        $last_product_variation_object = new WC_Product_Variable($last_product_variation[0]['variation_id']);
+                        $last_product_variation_price = $last_product_variation_object->get_price();
+
+                        foreach ($product_variations as $variation) {
+                            $variation_object = new WC_Product_Variable($variation['variation_id']);
+
+                            if ($variation_object->get_price() != $last_product_variation_price) {
+                                $multiprice_variable_product = true;
+                            }
+                        }
+                    }
+
+                    if ($multiprice_variable_product) {
+                        $variation_table_data = array();
+
+                        foreach ($product_variations as $variation) {
+                            $variation_product = new WC_Product_Variation($variation['variation_id']);
+                            $variation_table_data[$variation['variation_id']] = $this->pricing_table_calculate_adjusted_prices($selected_rule['pricing'], $variation_product->get_price());
+                        }
+
+                        return $variation_table_data;
+                    }
+                    else {
+                        if ($product->product_type == 'variable' && !empty($product_variations)) {
+                            $variation_product = new WC_Product_Variation($last_product_variation[0]['variation_id']);
+                            $table_data = $this->pricing_table_calculate_adjusted_prices($selected_rule['pricing'], $variation_product->get_price());
+                        }
+                        else {
+                            $table_data = $this->pricing_table_calculate_adjusted_prices($selected_rule['pricing'], $product->get_price());
+
+                        }
+                        return $table_data;
+                      }
+
+                }
+
+            }
+        }
         /**
          * Check if user matches rule requirements
-         * 
+         *
          * @access public
          * @param array $rule
          * @return bool
@@ -690,7 +792,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Calculate prices to display for pricing tables
-         * 
+         *
          * @access public
          * @param array $table_data
          * @param float $original_price
@@ -709,7 +811,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Format price to WooCommerce standards
-         * 
+         *
          * @access public
          * @param float $price
          * @return string
@@ -732,7 +834,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * WordPress activation hook
-         * 
+         *
          * @access public
          * @return void
          */
@@ -745,7 +847,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get some preconfigured values (usually constants that do not change)
-         * 
+         *
          * @access public
          * @return void
          */
@@ -1069,7 +1171,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get options saved to database or default options if no options saved
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1103,7 +1205,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Check if current user can manage plugin options
-         * 
+         *
          * @access public
          * @return bool
          */
@@ -1115,7 +1217,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get list of roles assigned to current user
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1128,7 +1230,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get list of capabilities assigned to current user
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1168,7 +1270,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Add link to admin page under Woocommerce menu
-         * 
+         *
          * @access public
          * @return void
          */
@@ -1194,7 +1296,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Set up admin page
-         * 
+         *
          * @access public
          * @return void
          */
@@ -1230,7 +1332,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Set up plugin options validation etc
-         * 
+         *
          * @access public
          * @return void
          */
@@ -1251,7 +1353,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Validate options
-         * 
+         *
          * @access public
          * @param array $input
          * @return array
@@ -1307,7 +1409,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Validate option fields
-         * 
+         *
          * @access public
          * @param string $context
          * @param array $input
@@ -1721,7 +1823,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get current settings page tab
-         * 
+         *
          * @access public
          * @return string
          */
@@ -1739,7 +1841,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Add settings link on plugins page
-         * 
+         *
          * @access public
          * @param array $links
          * @return void
@@ -1750,12 +1852,12 @@ if (!class_exists('RP_WCDPD')) {
             array_unshift($links, $settings_link);
             $settings_link = '<a href="admin.php?page=wc_pricing_and_discounts">'.__('Settings', 'rp_wcdpd').'</a>';
             array_unshift($links, $settings_link);
-            return $links; 
+            return $links;
         }
 
         /**
          * Load scripts and styles required for admin
-         * 
+         *
          * @access public
          * @return void
          */
@@ -1794,7 +1896,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Load scripts and styles required for frontend
-         * 
+         *
          * @access public
          * @return void
          */
@@ -1814,7 +1916,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get all product list for select field
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1838,7 +1940,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get all category list for select field
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1895,7 +1997,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get all country list for select field
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1913,7 +2015,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get all user role list for select field
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1930,7 +2032,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get all capability list for select field
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1980,7 +2082,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get all user list for select field
-         * 
+         *
          * @access public
          * @return array
          */
@@ -1997,7 +2099,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Get product categories
-         * 
+         *
          * @access public
          * @param array $product_id
          * @return array
@@ -2016,7 +2118,7 @@ if (!class_exists('RP_WCDPD')) {
 
         /**
          * Check WooCommerce version
-         * 
+         *
          * @access public
          * @param string $version
          * @return bool

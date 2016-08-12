@@ -155,6 +155,7 @@ class WC_API {
 
 		include_once( 'api/class-wc-api-resource.php' );
 		include_once( 'api/class-wc-api-coupons.php' );
+		include_once( 'api/class-wc-api-custom.php' );
 		include_once( 'api/class-wc-api-customers.php' );
 		include_once( 'api/class-wc-api-orders.php' );
 		include_once( 'api/class-wc-api-products.php' );
@@ -178,6 +179,7 @@ class WC_API {
 			array(
 				'WC_API_Coupons',
 				'WC_API_Customers',
+				'WC_API_Custom',
 				'WC_API_Orders',
 				'WC_API_Products',
 				'WC_API_Reports',

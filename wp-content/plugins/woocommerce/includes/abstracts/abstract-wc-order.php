@@ -1369,6 +1369,7 @@ abstract class WC_Abstract_Order {
 	 * @return float
 	 */
 	public function get_total_discount( $ex_tax = true ) {
+		
 		if ( ! $this->order_version || version_compare( $this->order_version, '2.3.7', '<' ) ) {
 			// Backwards compatible total calculation - totals were not stored consistently in old versions.
 			if ( $ex_tax ) {
@@ -1386,12 +1387,14 @@ abstract class WC_Abstract_Order {
 			}
 		// New logic - totals are always stored exclusive of tax, tax total is stored in cart_discount_tax
 		} else {
+
 			if ( $ex_tax ) {
 				$total_discount = (double) $this->cart_discount;
 			} else {
 				$total_discount = (double) $this->cart_discount + (double) $this->cart_discount_tax;
 			}
 		}
+
 		return apply_filters( 'woocommerce_order_amount_total_discount', round( $total_discount, WC_ROUNDING_PRECISION ), $this );
 	}
 

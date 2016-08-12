@@ -39,7 +39,7 @@ class WC_API_Orders extends WC_API_Resource {
 		# GET|POST /orders
 		$routes[ $this->base ] = array(
 			array( array( $this, 'get_orders' ),     WC_API_Server::READABLE ),
-			array( array( $this, 'create_order' ),   WC_API_Server::CREATABLE | WC_API_Server::ACCEPT_DATA ),
+			array( array( $this, 'create_order_cart' ),   WC_API_Server::CREATABLE | WC_API_Server::ACCEPT_DATA ),
 		);
 
 		# GET /orders/count
@@ -398,133 +398,140 @@ class WC_API_Orders extends WC_API_Resource {
 		return array( 'order_statuses' => apply_filters( 'woocommerce_api_order_statuses_response', $order_statuses, $this ) );
 	}
 
-	/**
-	 * Create an order
-	 *
-	 * @since 2.2
-	 * @param array $data raw order data
-	 * @return array
-	 */
-	public function create_order( $data ) {
-		global $wpdb;
 
-		wc_transaction_query( 'start' );
 
-		try {
-			if ( ! isset( $data['order'] ) ) {
-				throw new WC_API_Exception( 'woocommerce_api_missing_order_data', sprintf( __( 'No %1$s data specified to create %1$s', 'woocommerce' ), 'order' ), 400 );
-			}
+	public function create_order_cart( $data ) {
 
-			$data = $data['order'];
 
-			// permission check
-			if ( ! current_user_can( 'publish_shop_orders' ) ) {
-				throw new WC_API_Exception( 'woocommerce_api_user_cannot_create_order', __( 'You do not have permission to create orders', 'woocommerce' ), 401 );
-			}
+	 global $wpdb;
+	 wc_transaction_query( 'start' );
 
-			$data = apply_filters( 'woocommerce_api_create_order_data', $data, $this );
+	 try {
+		 if ( ! isset( $data['order'] ) ) {
+			 throw new WC_API_Exception( 'woocommerce_api_missing_order_data', sprintf( __( 'No %1$s data specified to create %1$s', 'woocommerce' ), 'order' ), 400 );
+		 }
+		 $data = $data['order'];
 
-			// default order args, note that status is checked for validity in wc_create_order()
-			$default_order_args = array(
-				'status'        => isset( $data['status'] ) ? $data['status'] : '',
-				'customer_note' => isset( $data['note'] ) ? $data['note'] : null,
-			);
+		 // permission check
+		 if ( ! current_user_can( 'publish_shop_orders' ) ) {
+			 throw new WC_API_Exception( 'woocommerce_api_user_cannot_create_order', __( 'You do not have permission to create orders', 'woocommerce' ), 401 );
+		 }
+		 $data = apply_filters( 'woocommerce_api_create_order_data', $data, $this );
 
-			// if creating order for existing customer
-			if ( ! empty( $data['customer_id'] ) ) {
+		 // default order args, note that status is checked for validity in wc_create_order()
+		 $default_order_args = array(
+			 'status'        => isset( $data['status'] ) ? $data['status'] : '',
+			 'customer_note' => isset( $data['note'] ) ? $data['note'] : null,
+		 );
+		 // if creating order for existing customer
+		 if ( ! empty( $data['customer_id'] ) ) {
 
-				// make sure customer exists
-				if ( false === get_user_by( 'id', $data['customer_id'] ) ) {
-					throw new WC_API_Exception( 'woocommerce_api_invalid_customer_id', __( 'Customer ID is invalid', 'woocommerce' ), 400 );
+			 // make sure customer exists
+			 if ( false === get_user_by( 'id', $data['customer_id'] ) ) {
+				 throw new WC_API_Exception( 'woocommerce_api_invalid_customer_id', __( 'Customer ID is invalid', 'woocommerce' ), 400 );
+			 }
+
+			 $default_order_args['customer_id'] = $data['customer_id'];
+		 }
+
+		 // create the pending order
+		 $order = $this->create_base_order( $default_order_args, $data );
+
+
+		 if ( is_wp_error( $order ) ) {
+			 throw new WC_API_Exception( 'woocommerce_api_cannot_create_order', sprintf( __( 'Cannot create order: %s', 'woocommerce' ), implode( ', ', $order->get_error_messages() ) ), 400 );
+		 }
+
+		 // billing/shipping addresses
+		 $this->set_order_addresses( $order, $data );
+
+		 $lines = array(
+			 'line_item'   => 'line_items',
+			 'shipping'  => 'shipping_lines',
+			 'fee'       => 'fee_lines',
+			 'coupon'    => 'coupon_lines',
+		 );
+		 $totalDiscount = 0 ;
+		 foreach ( $lines as $line_type => $line ) {
+
+			 if ( isset( $data[ $line ] ) && is_array( $data[ $line ] ) ) {
+
+				 $set_item = "set_{$line_type}";
+
+				 foreach ( $data[ $line ] as $item ) {
+						  	$this->$set_item( $order, $item, 'create' );
+								if($line_type ===  'coupon'){
+									$totalDiscount = $totalDiscount + $item['amount'];
+								}
+				 }
+			 }
+		 }
+
+		 $order->calculate_totals(false);
+		 	$order->set_total( $totalDiscount, 'cart_discount' );
+			$order->set_total( $order->get_total() - $totalDiscount, 'total' );
+		 // payment method (and payment_complete() if `paid` == true)
+
+		 if ( isset( $data['payment_details'] ) && is_array( $data['payment_details'] ) ) {
+
+			 // method ID & title are required
+			 if ( empty( $data['payment_details']['method_id'] ) || empty( $data['payment_details']['method_title'] ) ) {
+				 throw new WC_API_Exception( 'woocommerce_invalid_payment_details', __( 'Payment method ID and title are required', 'woocommerce' ), 400 );
+			 }
+
+			 update_post_meta( $order->id, '_payment_method', $data['payment_details']['method_id'] );
+			 update_post_meta( $order->id, '_payment_method_title', $data['payment_details']['method_title'] );
+
+			 // mark as paid if set
+			 if ( isset( $data['payment_details']['paid'] ) && true === $data['payment_details']['paid'] ) {
+				 $order->payment_complete( isset( $data['payment_details']['transaction_id'] ) ? $data['payment_details']['transaction_id'] : '' );
+			 }
+		 }
+
+		 // set order currency
+		 if ( isset( $data['currency'] ) ) {
+
+			 if ( ! array_key_exists( $data['currency'], get_woocommerce_currencies() ) ) {
+				 throw new WC_API_Exception( 'woocommerce_invalid_order_currency', __( 'Provided order currency is invalid', 'woocommerce'), 400 );
+			 }
+
+			 update_post_meta( $order->id, '_order_currency', $data['currency'] );
+		 }
+
+		 // set order meta
+		 if ( isset( $data['order_meta'] ) && is_array( $data['order_meta'] ) ) {
+			 $this->set_order_meta( $order->id, $data['order_meta'] );
+		 }
+
+		 // HTTP 201 Created
+		 $this->server->send_status( 201 );
+
+		 wc_delete_shop_order_transients( $order->id );
+
+		 do_action( 'woocommerce_api_create_order', $order->id, $data, $this );
+
+		 wc_transaction_query( 'commit' );
+
+				//error_log('before send_status line data '.print_R($order,TRUE) , 3, "var/log/my-errors.log");
+				try {
+					 $retOrder = $this->get_order( $order->id );
+					 //	 error_log('$retOrder :: '.print_R($retOrder,TRUE) , 3, "var/log/my-errors.log");
+				//	 error_log('$retOrder :: '.print_R($retOrder,TRUE) , 3, "var/log/my-errors.log");
+						//	error_log('create_order8::$order->id ' , 3, "var/log/my-errors.log");
+						return $retOrder;
+				} catch (Exception $e) {
+					error_log('error '. $e->getMessage() , 3, "var/log/my-errors.log");
+					wc_transaction_query( 'rollback' );
+
+					return new WP_Error( $e->getErrorCode(), $e->getMessage(), array( 'status' => $e->getCode() ) );
 				}
+	 } catch ( WC_API_Exception $e ) {
+		 error_log('error '. $e->getMessage() , 3, "var/log/my-errors.log");
+		 wc_transaction_query( 'rollback' );
 
-				$default_order_args['customer_id'] = $data['customer_id'];
-			}
-
-			// create the pending order
-			$order = $this->create_base_order( $default_order_args, $data );
-
-			if ( is_wp_error( $order ) ) {
-				throw new WC_API_Exception( 'woocommerce_api_cannot_create_order', sprintf( __( 'Cannot create order: %s', 'woocommerce' ), implode( ', ', $order->get_error_messages() ) ), 400 );
-			}
-
-			// billing/shipping addresses
-			$this->set_order_addresses( $order, $data );
-
-			$lines = array(
-				'line_item' => 'line_items',
-				'shipping'  => 'shipping_lines',
-				'fee'       => 'fee_lines',
-				'coupon'    => 'coupon_lines',
-			);
-
-			foreach ( $lines as $line_type => $line ) {
-
-				if ( isset( $data[ $line ] ) && is_array( $data[ $line ] ) ) {
-
-					$set_item = "set_{$line_type}";
-
-					foreach ( $data[ $line ] as $item ) {
-
-						$this->$set_item( $order, $item, 'create' );
-					}
-				}
-			}
-
-			// calculate totals and set them
-			$order->calculate_totals();
-
-			// payment method (and payment_complete() if `paid` == true)
-			if ( isset( $data['payment_details'] ) && is_array( $data['payment_details'] ) ) {
-
-				// method ID & title are required
-				if ( empty( $data['payment_details']['method_id'] ) || empty( $data['payment_details']['method_title'] ) ) {
-					throw new WC_API_Exception( 'woocommerce_invalid_payment_details', __( 'Payment method ID and title are required', 'woocommerce' ), 400 );
-				}
-
-				update_post_meta( $order->id, '_payment_method', $data['payment_details']['method_id'] );
-				update_post_meta( $order->id, '_payment_method_title', $data['payment_details']['method_title'] );
-
-				// mark as paid if set
-				if ( isset( $data['payment_details']['paid'] ) && true === $data['payment_details']['paid'] ) {
-					$order->payment_complete( isset( $data['payment_details']['transaction_id'] ) ? $data['payment_details']['transaction_id'] : '' );
-				}
-			}
-
-			// set order currency
-			if ( isset( $data['currency'] ) ) {
-
-				if ( ! array_key_exists( $data['currency'], get_woocommerce_currencies() ) ) {
-					throw new WC_API_Exception( 'woocommerce_invalid_order_currency', __( 'Provided order currency is invalid', 'woocommerce'), 400 );
-				}
-
-				update_post_meta( $order->id, '_order_currency', $data['currency'] );
-			}
-
-			// set order meta
-			if ( isset( $data['order_meta'] ) && is_array( $data['order_meta'] ) ) {
-				$this->set_order_meta( $order->id, $data['order_meta'] );
-			}
-
-			// HTTP 201 Created
-			$this->server->send_status( 201 );
-
-			wc_delete_shop_order_transients( $order->id );
-
-			do_action( 'woocommerce_api_create_order', $order->id, $data, $this );
-
-			wc_transaction_query( 'commit' );
-
-			return $this->get_order( $order->id );
-
-		} catch ( WC_API_Exception $e ) {
-
-			wc_transaction_query( 'rollback' );
-
-			return new WP_Error( $e->getErrorCode(), $e->getMessage(), array( 'status' => $e->getCode() ) );
-		}
+		 return new WP_Error( $e->getErrorCode(), $e->getMessage(), array( 'status' => $e->getCode() ) );
+	 }
 	}
-
 	/**
 	 * Creates new WC_Order.
 	 *
